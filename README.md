@@ -54,4 +54,9 @@ There are several JPA implementations out there. This hands-on uses EclipseLinkJ
           <version>4.0.0</version>
     </dependency>
  
+## Examples discussed in this hands-on
 
+01/jpa-hands-on  
+   - This is a minimum JPA example in Java SE that communicates with a MySQL database.
+   - It creates a GUEST table in the jpa_hands_on database.
+   - It populates the GUEST table with one guest (Florentino Ariza)
