@@ -1,4 +1,4 @@
-package xyz.pagliares.hostelapp.entity;
+package xyz.pagliares.jpa.titan.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,14 +13,14 @@ import jakarta.persistence.Id;
 
 
 @Entity
-public class Guest {
+public class Customer {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
         private String firstName;
         private String lastName;
 
-        public Guest() {
+        public Customer() {
         }
 
         public void setId(Long id) {

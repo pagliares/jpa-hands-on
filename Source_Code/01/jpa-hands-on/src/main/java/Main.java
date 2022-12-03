@@ -1,4 +1,4 @@
-import xyz.pagliares.hostelapp.entity.Guest;
+import xyz.pagliares.jpa.titan.entity.Customer;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -6,7 +6,7 @@ import jakarta.persistence.Persistence;
 
 public class Main {
     public static void main(String[] args) {
-        Guest guest = new Guest();
+        Customer guest = new Customer();
         guest.setFirstName("Florentino");
         guest.setLastName("Ariza");
 
