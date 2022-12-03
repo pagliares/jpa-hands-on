@@ -29,7 +29,7 @@ Instead of the old package names:
    - password: root
 
 
-### The database hostelapp_jdbc used in this course:
+### The database jpa_hands_on used in this course:
 
 In this hands-on, the database jpa_hands_on is created with aid of **PHP MyAdmin** that comes bundled with **MAMP**.
 
