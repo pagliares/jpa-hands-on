@@ -56,6 +56,10 @@ There are several JPA implementations out there. This hands-on uses EclipseLinkJ
  
 ## Examples discussed in this hands-on
 
+This hands-on uses the examples provided in the book Enterprise JavaBeans 3.1, 6th edition, by Bill Burke and Andrew Lee Rubinger. The examples are about a fictitious cruise company.
+
+<p align="center"><a href="https://amzn.to/3B9mffs" target="_blank"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Book_Cover.jpeg" widht=228 height=300 alt="EJB 3.1 book cover"></a></p>
+
 01/jpa-hands-on  
    - This is a minimum JPA example in Java SE that communicates with a MySQL database.
    - It creates a GUEST table in the jpa_hands_on database.
