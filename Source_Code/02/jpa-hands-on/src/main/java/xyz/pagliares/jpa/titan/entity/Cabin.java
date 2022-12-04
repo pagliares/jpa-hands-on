@@ -3,19 +3,16 @@ package xyz.pagliares.jpa.titan.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="CABIN")
+@Table(name = "CABIN")
 public class Cabin {
     private int id;
     private String name;
     private int deckLevel;
-
     private int shipId;
-
     private int bedCount;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="CABIN_ID")
+    @Column(name = "CABIN_ID")
     public int getId() {
         return id;
     }
@@ -23,9 +20,8 @@ public class Cabin {
     public void setId(int pk) {
         this.id = pk;
     }
-
-    @Column(name="CABIN_NAME")
-    public String getName(){
+    @Column(name = "CABIN_NAME")
+    public String getName() {
         return name;
     }
 
@@ -33,7 +29,7 @@ public class Cabin {
         this.name = name;
     }
 
-    @Column(name="DECK_LEVEL")
+    @Column(name = "DECK_LEVEL")
     public int getDeckLevel() {
         return deckLevel;
     }
@@ -42,7 +38,7 @@ public class Cabin {
         this.deckLevel = level;
     }
 
-    @Column(name="SHIP_ID")
+    @Column(name = "SHIP_ID")
     public int getShipId() {
         return shipId;
     }
@@ -51,7 +47,7 @@ public class Cabin {
         this.shipId = shipId;
     }
 
-    @Column(name="BED_COUNT")
+    @Column(name = "BED_COUNT")
     public int getBedCount() {
         return bedCount;
     }

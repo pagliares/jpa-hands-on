@@ -1,18 +1,18 @@
 package xyz.pagliares.jpa.titan.controller;
 
+import jakarta.persistence.EntityManager;
 import xyz.pagliares.jpa.titan.entity.Cabin;
-import xyz.pagliares.jpa.titan.entity.Customer;
 
-public class CabinController extends Controller{
-
-    public boolean persist(Cabin cabin) {
-        entityManager.getTransaction().begin();
-        entityManager.persist(cabin);
-        entityManager.getTransaction().commit();
-        return true;
+public class CabinController extends Controller {
+    public CabinController(EntityManager entityManager) {
+        super(entityManager);
     }
-
+    public void persist(Cabin cabin) {
+        this.getEntityManager().getTransaction().begin();
+        this.getEntityManager().persist(cabin);
+        this.getEntityManager().getTransaction().commit();
+    }
     public Cabin findCabin(int id){
-        return entityManager.find(Cabin.class, id);
+        return this.getEntityManager().find(Cabin.class, id);
     }
 }

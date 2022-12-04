@@ -1,16 +1,18 @@
 package xyz.pagliares.jpa.titan.controller;
 
+import jakarta.persistence.EntityManager;
 import xyz.pagliares.jpa.titan.entity.Customer;
 
 public class CustomerController extends Controller {
-    public boolean persist(Customer customer) {
-        entityManager.getTransaction().begin();
-        entityManager.persist(customer);
-        entityManager.getTransaction().commit();
-        return true;
+    public CustomerController(EntityManager entityManager) {
+        super(entityManager);
     }
-
+    public void persist(Customer customer) {
+        this.getEntityManager().getTransaction().begin();
+        this.getEntityManager().persist(customer);
+        this.getEntityManager().getTransaction().commit();
+    }
     public Customer findCustomer(Long id){
-        return entityManager.find(Customer.class, id);
+        return this.getEntityManager().find(Customer.class, id);
     }
 }
