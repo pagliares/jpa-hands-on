@@ -72,3 +72,10 @@ The examples in this repository cover a relatively simple part of the Titan syst
    - This is a minimum JPA example in Java SE that communicates with a MySQL database.
    - It creates a CUSTOMER table in the jpa_hands_on database.
    - It populates the CUSTOMER table with one customer (Florentino Ariza)
+   - It demonstrates how to use the EclipseLink JPA implementation.
+
+02 - jpa-hands-on  
+   - This example builds on the first example by adding a Cabin entity bean
+   - The example also creates two controllers: CustomerController and CabinController
+   - The controllers encapsulates the logic to persist and find by id customers and cabins.
+   - The example demonstrates how to persist and find by id a customer and a cabin stored in the database.
