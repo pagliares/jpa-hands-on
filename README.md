@@ -80,5 +80,5 @@ The examples in this repository cover a relatively simple part of the Titan syst
    - The controllers encapsulates the logic to persist and find by id customers and cabins.
    - The example demonstrates how to persist and find by id a customer and a cabin stored in the database.
 
-<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_02.png" widht=1094 height=658 alt="UML class diagram"></a></p>
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_02.png" widht=820 height=493 alt="UML class diagram"></a></p>
 
