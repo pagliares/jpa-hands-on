@@ -22,5 +22,13 @@ public class Main {
 
         CabinController cabinController = new CabinController();
         cabinController.persist(cabin);
+
+        // Finding a customer in the database
+        customer = customerController.findCustomer(1L);
+        System.out.println("Customer found: " + customer.getFirstName());
+
+        // Finding a cabin in the database
+        cabin = cabinController.findCabin(1);
+        System.out.println("Cabin found: " + cabin.getName());
     }
 }

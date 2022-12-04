@@ -9,4 +9,8 @@ public class CustomerController extends Controller {
         entityManager.getTransaction().commit();
         return true;
     }
+
+    public Customer findCustomer(Long id){
+        return entityManager.find(Customer.class, id);
+    }
 }
