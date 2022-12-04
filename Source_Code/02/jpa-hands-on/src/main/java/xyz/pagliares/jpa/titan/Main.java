@@ -1,25 +1,26 @@
 package xyz.pagliares.jpa.titan;
 
+import xyz.pagliares.jpa.titan.controller.CabinController;
+import xyz.pagliares.jpa.titan.controller.CustomerController;
+import xyz.pagliares.jpa.titan.entity.Cabin;
 import xyz.pagliares.jpa.titan.entity.Customer;
-
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 
 public class Main {
     public static void main(String[] args) {
-        Customer guest = new Customer();
-        guest.setFirstName("Florentino");
-        guest.setLastName("Ariza");
+        Customer customer = new Customer();
+        customer.setFirstName("Florentino");
+        customer.setLastName("Ariza");
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpa-hands-on");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        CustomerController customerController = new CustomerController();
+        customerController.persist(customer);
 
-        entityManager.getTransaction().begin();
-        entityManager.persist(guest);
-        entityManager.getTransaction().commit();
+        Cabin cabin = new Cabin();
+        cabin.setName("Cabin Sea View");
+        cabin.setBedCount(2);
+        cabin.setDeckLevel(3);
+        cabin.setShipId(1);
 
-        entityManager.close();
-        entityManagerFactory.close();
+        CabinController cabinController = new CabinController();
+        cabinController.persist(cabin);
     }
 }
