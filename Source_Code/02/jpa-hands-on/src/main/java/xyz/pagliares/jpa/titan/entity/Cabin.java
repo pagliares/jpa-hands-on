@@ -14,7 +14,7 @@ public class Cabin {
     private int bedCount;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="CABIN_ID")
     public int getId() {
         return id;
