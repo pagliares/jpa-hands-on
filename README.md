@@ -56,9 +56,17 @@ There are several JPA implementations out there. This hands-on uses EclipseLinkJ
  
 ## Examples discussed in this hands-on
 
-This hands-on uses the examples provided in the book Enterprise JavaBeans 3.1, 6th edition, by Bill Burke and Andrew Lee Rubinger. The examples are about a fictitious cruise company.
+This hands-on uses the examples provided in the book Enterprise JavaBeans 3.1, 5th edition, by Bill Burke and Richard Monson-Haefel. The examples are about a fictitious cruise company.
 
 <p align="center"><a href="https://amzn.to/3B9mffs" target="_blank"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Book_Cover.jpeg" widht=228 height=300 alt="EJB 3.1 book cover"></a></p>
+
+### Titan cruises: a hypothetical company
+
+The examples in this repository are in the context of a hypothetical company, a ship called Titan Cruises. A cruise ship is a particularly interesting example because it incorporates many different businesses: it has staterooms similar to hotel rooms; serves meals like a restaurant; offers various recreational opportunities; and needs to interact with other tour companies.
+
+This type of business is a good candidate for a distributed object system because many of the users of this system are in different geographic areas. Travel agencies, for example, that need to make reservations for tickets on Titan ships, need access to the reservation system. Supporting several - possibly hundreds - travel agencies requires a robust transactional system capable of ensuring that these agencies have access to the reservation system and these, in turn, are properly completed.
+
+The examples in this repository cover a relatively simple part of the Titan system that focuses on the process of making a reservation for a ship. These examples will give you the opportunity to develop Ship, Cabin, TravelAgent, ProcessPayment and other entity beans. In this process you will need to create relational database tables to persist the data used in the examples. We assume that you are already familiar with relational database management systems and that you are able to create tables according to the provided SQL statements.
 
 01 - jpa-hands-on  
    - This is a minimum JPA example in Java SE that communicates with a MySQL database.
