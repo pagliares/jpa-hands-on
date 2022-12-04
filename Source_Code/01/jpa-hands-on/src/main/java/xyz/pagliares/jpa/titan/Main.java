@@ -1,3 +1,5 @@
+package xyz.pagliares.jpa.titan;
+
 import xyz.pagliares.jpa.titan.entity.Customer;
 
 import jakarta.persistence.EntityManager;
@@ -12,9 +14,11 @@ public class Main {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpa-hands-on");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
+
         entityManager.getTransaction().begin();
         entityManager.persist(guest);
         entityManager.getTransaction().commit();
+
         entityManager.close();
         entityManagerFactory.close();
     }
