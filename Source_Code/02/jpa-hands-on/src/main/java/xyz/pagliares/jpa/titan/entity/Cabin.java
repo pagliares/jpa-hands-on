@@ -9,6 +9,10 @@ public class Cabin {
     private String name;
     private int deckLevel;
 
+    private int shipId;
+
+    private int bedCount;
+
     @Id
     @GeneratedValue
     @Column(name="CABIN_ID")
@@ -29,12 +33,30 @@ public class Cabin {
         this.name = name;
     }
 
-    @Column(name="CABIN_DECK_LEVEL")
+    @Column(name="DECK_LEVEL")
     public int getDeckLevel() {
         return deckLevel;
     }
 
     public void setDeckLevel(int level) {
         this.deckLevel = level;
+    }
+
+    @Column(name="SHIP_ID")
+    public int getShipId() {
+        return shipId;
+    }
+
+    public void setShipId(int shipId) {
+        this.shipId = shipId;
+    }
+
+    @Column(name="BED_COUNT")
+    public int getBedCount() {
+        return bedCount;
+    }
+
+    public void setBedCount(int bedCount) {
+        this.bedCount = bedCount;
     }
 }
