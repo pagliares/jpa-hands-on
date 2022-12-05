@@ -128,3 +128,20 @@ public class Customer implements Serializable {
    ...
 }
 </pre>
+
+### 06 - jpa-hands-on
+   - This example builds on the previous example by demonstrating that we can indicate that a property must not be persisted in the database by using the JPA annotation @Transient.
+   - The example also illustrates that a numerical primary key is auto incremented, generating a new value even when we remove an entity from the database. 
+
+<pre>
+@Entity
+@Table(name="CUSTOMER_TABLE")
+public class Customer implements Serializable {
+    ...
+    ...
+    <strong>@Transient</strong>
+    private long ssn;
+   ...
+   ...
+}
+</pre>
