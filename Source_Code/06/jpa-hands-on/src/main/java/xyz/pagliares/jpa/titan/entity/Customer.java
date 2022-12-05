@@ -18,6 +18,8 @@ public class Customer implements Serializable {
     @Column(name="FIRST_NAME", length=20, nullable = false)
     private String firstName;
     private String lastName;
+    @Transient
+    private long ssn;
 
     public Customer() {
     }
@@ -46,12 +48,19 @@ public class Customer implements Serializable {
         this.lastName = lastName;
     }
 
+    public long getSsn() {
+        return ssn;
+    }
+    public void setSsn(long ssn) {
+        this.ssn = ssn;
+    }
     @Override
     public String toString() {
         return "Customer{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", ssn=" + ssn +
                 '}';
     }
 }

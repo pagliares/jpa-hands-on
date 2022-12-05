@@ -72,7 +72,7 @@ public class Main {
         Customer customer = new Customer();
         customer.setFirstName("Florentino");
         customer.setLastName("Ariza");
-
+        customer.setSsn(123456);
         customerController.persist(customer);
     }
     public static void createCabin(EntityManager entityManager, CabinController cabinController) {
