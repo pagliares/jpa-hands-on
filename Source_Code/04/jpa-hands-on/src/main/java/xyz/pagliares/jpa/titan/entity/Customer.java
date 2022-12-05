@@ -5,8 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.io.Serializable;
+
 @Entity
-public class Customer {
+public class Customer implements Serializable {
     // We annotate with @Id and @GeneratedValue the property id. An alternative would be
     // use these annotations before declaration of the getId() method.
     // If you decide to annotate the property, all other JPA annotations must be on properties

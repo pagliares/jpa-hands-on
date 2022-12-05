@@ -2,9 +2,11 @@ package xyz.pagliares.jpa.titan.entity;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "CABIN")
-public class Cabin {
+public class Cabin implements Serializable {
     private int id;
     private String name;
     private int deckLevel;
