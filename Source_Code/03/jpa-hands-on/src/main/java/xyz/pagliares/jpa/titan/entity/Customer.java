@@ -7,6 +7,10 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Customer {
+    // We annotate with @Id and @GeneratedValue the property id. An alternative would be
+    // use these annotations before declaration of the getId() method.
+    // If you decide to annotate the property, all other JPA annotations must be on properties
+    // If you decide do annotate methods, all other JPA annotations must be on methods.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
