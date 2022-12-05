@@ -89,4 +89,10 @@ The examples in this repository cover a relatively simple part of the Titan syst
 
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_03.png" widht=358 height=390 alt="UML class diagram"></a></p>
 
+04 - jpa-hands-on  
+   - This example builds on the previous example by adding a method in the CabinController class to remove a cabin
+   - The example also refactors the main class extracting methods to create a cabin and a customer
+
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_04.png" widht=875 height=185 alt="UML class diagram"></a></p>
+
 
