@@ -96,4 +96,22 @@ The examples in this repository cover a relatively simple part of the Titan syst
 
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_04.png" widht=875 height=185 alt="UML class diagram"></a></p>
 
+05 - jpa-hands-on  
+   - This example builds on the previous example by demonstrating how we can change the default mapping for table and column names in a database.  
+   - Sometimes this is necessary (when, for example, the Database Administrator is enforcing some conventions on columns and table names that the OO developer doesn't want to follow in the entity beans. 
 
+<pre>
+@Entity
+<strong>@Table(name="CUSTOMER_TABLE")</strong>
+
+public class Customer implements Serializable {
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   <strong>@Column(name="CUST_ID", nullable = false)</strong>
+   private Long id;
+   <strong>@Column(name="FIRST_NAME", length=20, nullable = false)</strong>
+   private String firstName;
+   ...
+   ...
+}
+</pre>
