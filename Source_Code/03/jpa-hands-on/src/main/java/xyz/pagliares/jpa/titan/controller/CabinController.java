@@ -15,4 +15,15 @@ public class CabinController extends Controller {
     public Cabin findCabin(int id){
         return this.getEntityManager().find(Cabin.class, id);
     }
+
+    public void updateBedCount(int id, int newCount) {
+        Cabin cabin = this.getEntityManager().find(Cabin.class, id);
+        cabin.setBedCount(newCount);
+    }
+
+    public void updateCabin(Cabin cabin) {
+        this.getEntityManager().getTransaction().begin();
+        this.getEntityManager().merge(cabin);
+        this.getEntityManager().getTransaction().commit();
+    }
 }
