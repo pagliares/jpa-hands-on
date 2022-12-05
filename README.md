@@ -82,3 +82,11 @@ The examples in this repository cover a relatively simple part of the Titan syst
 
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_02.png" widht=820 height=493 alt="UML class diagram"></a></p>
 
+03 - jpa-hands-on  
+   - This example builds on the previous example by adding a some update methods to the CabinController class
+   - The example also illustrates that we can annotate entity beans in two ways: properties annotations and method annotations
+   - The example demonstrates some database transactions in order to persist and update some cabin beans on the database.
+
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_03.png" widht=358 height=390 alt="UML class diagram"></a></p>
+
+
