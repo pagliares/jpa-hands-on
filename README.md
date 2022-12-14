@@ -173,3 +173,20 @@ public class Customer implements Serializable {
 
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_07.png" widht=886 height=431 alt="UML class diagram"></a></p>
    
+
+### 08 - jpa-hands-on
+   - This example is almost identical to the previous version. The differences is that instead of using @Temporal(TemporalType.TIMESTAMP) that is associated with java.util. Date  (Pre Java SE8), in this example we use  LocalDateTime and LocalDate (Since Java SE 8).
+   - Since LocalDateTime and LocalDate are considered type values (@Basic) in JPA, We don't need to put any annotation to indicate this is a date/time field.anymore.
+
+<pre>
+@Entity
+@Table(name="CUSTOMER")
+public class Customer implements Serializable {
+    ...
+    
+    private LocalDateTime timeCreated;
+    private LocalDate birthDate;
+    
+    ...
+}
+</pre>
