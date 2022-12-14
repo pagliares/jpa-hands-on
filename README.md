@@ -145,3 +145,31 @@ public class Customer implements Serializable {
    ...
 }
 </pre>
+
+
+### 07 - jpa-hands-on
+   - This example evolves the previous example by adding a keyboard utility class and aims to produce a simple CRUD (Create, Retrieve, Updte, Delete) command-line program for a customer of the titan cruises.
+   - From the JPA perpective, the example illustrates the use of the annotation @Temporal and your constants TemporalType.TIMESTAMP and TemporalType.DATE
+   - The file persistence.xml has some additional comments wit other possible values for the value attribute or the property eclipselink.ddl-generation. Changing theses values is useful for development/testing purposes.
+   - The examples uses @Temporal that is assigned with Pre Java-SE 8 versions. Hence, i strive to only use date and time manipulation with Pre-Java SE 8 API for dates (not recommended anymore). In the next example, we will refactor this solution by Mapping date/time with JPA to the API used since Java SE 8 (Recommended).
+   
+<pre>
+@Entity
+@Table(name="CUSTOMER_TABLE")
+public class Customer implements Serializable {
+    ...
+    ...
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date timeCreated;
+
+    @Temporal(TemporalType.DATE)
+    private Date birthDate;
+   ...
+   ...
+}
+</pre>
+   
+   - Notice that the controller is getting bigger, with several new methods. This may indicate that it is losing cohesion. In next examples we will deal with this design problem by extracting from the controller the responsibilities to database integration.
+
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_07.png" widht=886 height=431 alt="UML class diagram"></a></p>
+   
