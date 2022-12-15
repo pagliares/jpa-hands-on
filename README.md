@@ -224,3 +224,10 @@ public class Customer implements Serializable {
    - This example does not include any new feature of JPA. Instead, it refactors the code developed so far in order do extract the persistence logic from the controllers to a DAO (Data Access Object) hierarchy, providing higher cohesion to the controller classes.  
 
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_10.png" widht=901 height=477 alt="UML class diagram"></a></p>
+
+### 11 - jpa-hands-on
+   - This example demonstrates the use of the annotations @Embedded, @AttributeOverrides, @AttibuteOverride e @Embeddable.
+   - These annotation may be used when the developer wants to embed java objects inside an entity bean and map the properties of this embedable object to columnds in the database generated for the entity bean.
+   - Embedabble objects do not have identy (primary key) and are exclusively owned by the entity bean classes associated with them.
+   
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_11.png" widht=901 height=477 alt="UML class diagram"></a></p>
