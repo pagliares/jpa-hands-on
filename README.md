@@ -219,3 +219,8 @@ public class Customer implements Serializable {
   - Below, the UML Class Diagrama update with the code developed so far:
   
   <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_09.png" widht=894 height=392 alt="UML class diagram"></a></p>
+  
+### 10 - jpa-hands-on
+   - This example does not include any new feature of JPA. Instead, it refactors the code developed so far in order do extract the persistence logic from the controllers to a DAO (Data Access Object) hierarchy, providing higher cohesion to the controller classes.  
+
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_10.png" widht=901 height=477 alt="UML class diagram"></a></p>
