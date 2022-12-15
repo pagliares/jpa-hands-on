@@ -190,3 +190,32 @@ public class Customer implements Serializable {
     ...
 }
 </pre>
+
+### 09 - jpa-hands-on
+   - This example demonstrates how we can persist Java Enums to the database through the use of the annotation @Enumerated
+   
+<pre>
+@Entity
+@Table(name="CUSTOMER")
+public class Customer implements Serializable {
+    ...
+    
+    <strong>@Enumerated(EnumType.STRING)</strong>
+    private CustomerType customerType;
+    
+    ...
+}
+</pre>
+
+  - There are two possible values to the EnumType parameter of @Enumerated: EnumType.STRING or EnumType.ORDINAL. The images below demonstrate the impact of each on the table customer:
+  
+ <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Database_Table_Enum_String.png" widht=837 height=360 alt="UML class diagram"></a></p>
+ 
+ <br>
+ 
+ <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Database_Table_Enum_Ordinal.png" widht=837 height=360 alt="UML class diagram"></a></p>
+  
+  
+  - Below, the UML Class Diagrama update with the code developed so far:
+  
+  <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_09.png" widht=894 height=392 alt="UML class diagram"></a></p>
