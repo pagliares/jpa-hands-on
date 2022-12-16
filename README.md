@@ -231,3 +231,15 @@ public class Customer implements Serializable {
    - Embedabble objects do not have identy (primary key) and are exclusively owned by the entity bean classes associated with them.
    
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_11.png" widht=901 height=477 alt="UML class diagram"></a></p>
+
+### 12 - jpa-hands-on
+   - This example is an alternative to the previous example. 
+   - The example uses the concept of relationship between entities.
+   - JPA has 7 types of relationships: UNIDIRECTIONAL ONE-TO-ONE, BIDIRECTIONAL ONE-TO-ONE, UNIDIRECTIONAL ONE-TO-MANY, BIDIRECTIONAL ONE-TO-MANY, UNIDIRECTIONAL MANY-TO-ONE, UNIDIRECTIONAL MANY-TO-MANY, BIDIRECTIONAL MANY-TO-MANY. We are going to study all of them in this hands-on.
+   - We recommend you to contrast this solution with the solution presented in the previous example that used @Embedded, @AttributeOverrides, @AttributeOverride, and @Embeddable
+   - This example uses a UNIDIRECTIONAL ONE-TO-ONE RELATIONSHIP between Customer and Address (A customer has one address). 
+   - This alternative solution generates two tables in the database and associates them  through the foreign key of the table Address presented in the table Customer.
+   - If you want, you can customize the name of the column to be created in the table Customer by using the annotation @JoinColumn. For example, @JoinColumn(name="ADDR_ID")
+   - The attribute cascade with value CascadeType.ALL indicates to JPA that if we remove a customer, we also want to automatically delete its address associated. In the same way, if we persist a customer, it's address will be persisted automatically as well.
+   - CascadeType has other constants, for example, CascadeType.PERSIST. If you use CascadeType.PERSIST you are telling JPA that if you persist a customer, you also want to persist its address, but if you remove a customer, the associate address WILL NOT be deleted from the database.
+     
