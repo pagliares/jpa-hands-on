@@ -275,4 +275,4 @@ public class CreditCard implements Serializable {
     }
 </pre>
 
-<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_13.png" widht=535 height=201 alt="UML class diagram"></a></p>
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_13.png" widht=650 height=245 alt="UML class diagram"></a></p>
