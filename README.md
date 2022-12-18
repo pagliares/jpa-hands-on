@@ -242,4 +242,37 @@ public class Customer implements Serializable {
    - If you want, you can customize the name of the column to be created in the table Customer by using the annotation @JoinColumn. For example, @JoinColumn(name="ADDR_ID")
    - The attribute cascade with value CascadeType.ALL indicates to JPA that if we remove a customer, we also want to automatically delete its address associated. In the same way, if we persist a customer, it's address will be persisted automatically as well.
    - CascadeType has other constants, for example, CascadeType.PERSIST. If you use CascadeType.PERSIST you are telling JPA that if you persist a customer, you also want to persist its address, but if you remove a customer, the associate address WILL NOT be deleted from the database.
-     
+
+### 13 - jpa-hands-on
+   -  This examples illustrates the use of <strong>BIDIRECTIONAL ONE-TO-ONE RELATIONSHIP</strong>. In that sense, we create the CredtiCard entiy class and associtated in a bidirectional way with the Customer entity class.
+   - I updated the populateCustomerTable that populates the database with some initial data to include credit card information
+   - I updated the <property name="eclipselink.ddl-generation" value="create-tables"/> on persistence.xml to allow running both CustomerTest and CabinTest classes, without droping the database tables after execution of one of them.
+   
+<pre>
+@Entity
+@Table(name="CUSTOMER")
+public class Customer implements Serializable {
+    ...
+    
+    <strong>@OneToOne(cascade = {CascadeType.ALL})</strong>
+    <strong>@JoinColumn(name="CREDIT_CARD_ID")</strong>
+    private CreditCard creditCard;
+    
+    ...
+}
+</pre>
+
+<pre>
+@Entity
+public class CreditCard implements Serializable {
+    private int id;
+    ...
+    private Customer customer;
+    
+    <strong>@OneToOne(mappedBy = "creditCard")</strong>
+    public Customer getCustomer() {
+        return customer;
+    }
+</pre>
+
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_13.png" widht=535 height=201 alt="UML class diagram"></a></p>
