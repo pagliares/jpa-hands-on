@@ -244,7 +244,7 @@ public class Customer implements Serializable {
    - CascadeType has other constants, for example, CascadeType.PERSIST. If you use CascadeType.PERSIST you are telling JPA that if you persist a customer, you also want to persist its address, but if you remove a customer, the associate address WILL NOT be deleted from the database.
 
 ### 13 - jpa-hands-on
-   -  This examples illustrates the use of <strong>BIDIRECTIONAL ONE-TO-ONE RELATIONSHIP</strong>. In that sense, we create the CredtiCard entiy class and associtated in a bidirectional way with the Customer entity class.
+   -  This example illustrates the use of <strong>BIDIRECTIONAL ONE-TO-ONE RELATIONSHIP</strong>. In that sense, we create the CredtiCard entiy class and associtated in a bidirectional way with the Customer entity class.
    - I updated the populateCustomerTable that populates the database with some initial data to include credit card information
    - I updated the <property name="eclipselink.ddl-generation" value="create-tables"/> on persistence.xml to allow running both CustomerTest and CabinTest classes, without droping the database tables after execution of one of them.
    
