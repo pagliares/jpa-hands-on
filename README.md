@@ -235,9 +235,9 @@ public class Customer implements Serializable {
 ### 12 - jpa-hands-on
    - This example is an alternative to the previous example. 
    - The example uses the concept of relationship between entities.
+   - This example uses a <strong>UNIDIRECTIONAL ONE-TO-ONE RELATIONSHIP</strong> between Customer and Address (A customer has one address). 
    - JPA has 7 types of relationships: UNIDIRECTIONAL ONE-TO-ONE, BIDIRECTIONAL ONE-TO-ONE, UNIDIRECTIONAL ONE-TO-MANY, BIDIRECTIONAL ONE-TO-MANY, UNIDIRECTIONAL MANY-TO-ONE, UNIDIRECTIONAL MANY-TO-MANY, BIDIRECTIONAL MANY-TO-MANY. We are going to study all of them in this hands-on.
    - We recommend you to contrast this solution with the solution presented in the previous example that used @Embedded, @AttributeOverrides, @AttributeOverride, and @Embeddable
-   - This example uses a UNIDIRECTIONAL ONE-TO-ONE RELATIONSHIP between Customer and Address (A customer has one address). 
    - This alternative solution generates two tables in the database and associates them  through the foreign key of the table Address presented in the table Customer.
    - If you want, you can customize the name of the column to be created in the table Customer by using the annotation @JoinColumn. For example, @JoinColumn(name="ADDR_ID")
    - The attribute cascade with value CascadeType.ALL indicates to JPA that if we remove a customer, we also want to automatically delete its address associated. In the same way, if we persist a customer, it's address will be persisted automatically as well.
