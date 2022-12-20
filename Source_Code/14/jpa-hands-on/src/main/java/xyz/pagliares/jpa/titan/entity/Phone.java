@@ -12,7 +12,6 @@ public class Phone implements Serializable {
     private int id;
     private String number;
     private int type;
-
     public Phone() {
     }
 
@@ -45,5 +44,13 @@ public class Phone implements Serializable {
 
     public void setType(int type) {
         this.type = type;
+    }
+    @Override
+    public String toString() {
+        return "Phone{" +
+                "id=" + id +
+                ", number='" + number + '\'' +
+                ", type=" + type +
+                '}';
     }
 }

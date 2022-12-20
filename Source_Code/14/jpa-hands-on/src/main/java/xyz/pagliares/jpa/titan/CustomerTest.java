@@ -1,9 +1,7 @@
 package xyz.pagliares.jpa.titan;
 
 import xyz.pagliares.jpa.titan.controller.CustomerController;
-import xyz.pagliares.jpa.titan.entity.Address;
-import xyz.pagliares.jpa.titan.entity.Customer;
-import xyz.pagliares.jpa.titan.entity.CustomerType;
+import xyz.pagliares.jpa.titan.entity.*;
 import xyz.pagliares.jpa.titan.entity.exception.CustomerNotFoundException;
 import xyz.pagliares.jpa.titan.entity.exception.CustomerTypeNotFoundException;
 import xyz.pagliares.jpa.titan.integration.CustomerDAO;
@@ -35,7 +33,7 @@ public class CustomerTest {
     // SimpleDateFormat was used Pre Java-SE 8. DateTimeFormatter is used since Java-SE 8)
 //    private static SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", locale);
 
-    private static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", locale);
+    private static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", locale);
 
     public static void main(String[] args) {
         System.out.println("Populating Customer table with fake data to ease testing");
@@ -126,6 +124,45 @@ public class CustomerTest {
         address.setState(customerState);
         customer.setAddress(address);
 
+        // Credit Card
+        LocalDate expiration = null;
+        String organization = KeyboardInput.readInputAsString("Enter credit card organization (VISA, MASTERCARD, or DINNERS)...: ");
+        try {
+            expiration = KeyboardInput.readStringInputAsJavaLocalDate("Enter credit card expiration date (e.g. 15/10/2027) ");
+
+        } catch (DateTimeParseException dateTimeParseException) {
+            System.out.println(dateTimeParseException.getMessage());
+            return;
+        }
+
+        String number = KeyboardInput.readInputAsString("Enter credit card number, e.g (1234-4321-1234-4321)..: ");
+        String nameOnCard = KeyboardInput.readInputAsString("Enter name on card ...: ");
+        Integer securityCode = KeyboardInput.readInputAsInteger("Enter security code ...: ");
+
+        CreditCard creditCard = new CreditCard();
+        creditCard.setOrganization(organization.toUpperCase());
+        creditCard.setName(nameOnCard);
+        creditCard.setExpiration(expiration);
+        creditCard.setNumber(number);
+        creditCard.setSecurityCode(securityCode);
+
+        // Configure the bidirectional association
+        creditCard.setCustomer(customer);
+        customer.setCreditCard(creditCard);
+
+        boolean more = true;
+        while (more) {
+            String phoneNumber = KeyboardInput.readInputAsString("Enter phone number. E.g: (+1-303-555-0137)...: ");
+            Integer phoneType = KeyboardInput.readInputAsInteger("Enter phone type (1 or 2)...: ");
+            Phone phone = new Phone();
+            phone.setNumber(phoneNumber);
+            phone.setType(phoneType);
+            customer.addPhoneNumber(phone);
+            String result = KeyboardInput.readInputAsString("Enter another phone? (Y/N)...: ");
+            if (result.charAt(0) == 'n' || result.charAt(0) == 'N')
+                break;
+        }
+
         // 3 - Delegate to the controller - System operation
         customerController.persist(customer);
         System.out.println("Customer created with success !");
@@ -184,7 +221,7 @@ public class CustomerTest {
             LocalDate currentBirthdate = customer.getBirthDate();
             String dateFormatted = dateTimeFormatter.format(currentBirthdate);
 
-            birthDate = KeyboardInput.readStringInputAsJavaLocalDate("Enter new customer birthdate (e.g. 07/05/1977) (" + dateFormatted+")...: ");
+            birthDate = KeyboardInput.readStringInputAsJavaLocalDate("Enter new customer birthdate (" + dateFormatted+")...: ");
 
         } catch (DateTimeParseException dateTimeParseException) {
             throw new RuntimeException(dateTimeParseException);
@@ -200,6 +237,13 @@ public class CustomerTest {
         address.setStreet(customerStreet);
         address.setCity(customerCity);
         address.setState(customerState);
+
+        for (Phone phone : customer.getPhoneNumbers()){
+            String phoneNumber = KeyboardInput.readInputAsString("Enter new phone number (" + phone.getNumber()+")...: ");
+            Integer phonetype = KeyboardInput.readInputAsInteger("Enter new phone type (" + phone.getType()+")...: ");
+            phone.setNumber(phoneNumber);
+            phone.setType(phonetype);
+        }
 
         // 4 - Updates customer details on the heap
         customer.setFirstName(newName);

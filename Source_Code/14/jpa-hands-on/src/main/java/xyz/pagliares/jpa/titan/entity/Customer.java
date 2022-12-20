@@ -138,6 +138,10 @@ public class Customer implements Serializable {
         this.phoneNumbers = phoneNumbers;
     }
 
+    public void addPhoneNumber(Phone phoneNumber) {
+        this.phoneNumbers.add(phoneNumber);
+    }
+
     @Override
     // Notice one method by using substring
     // (Pre Java SE 8) to get only the date without time information

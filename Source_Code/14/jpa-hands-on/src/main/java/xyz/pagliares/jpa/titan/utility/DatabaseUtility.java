@@ -5,10 +5,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import xyz.pagliares.jpa.titan.CustomerTest;
 import xyz.pagliares.jpa.titan.controller.CustomerController;
-import xyz.pagliares.jpa.titan.entity.Address;
-import xyz.pagliares.jpa.titan.entity.CreditCard;
-import xyz.pagliares.jpa.titan.entity.Customer;
-import xyz.pagliares.jpa.titan.entity.CustomerType;
+import xyz.pagliares.jpa.titan.entity.*;
 import xyz.pagliares.jpa.titan.integration.CustomerDAO;
 
 import java.time.LocalDate;
@@ -99,6 +96,17 @@ public class DatabaseUtility {
             // Configure the bidirectional association
             creditCard.setCustomer(customer);
             customer.setCreditCard(creditCard);
+
+            // Create the phones
+            Phone phone1 = new Phone();
+            phone1.setNumber("+1-303-555-0137");
+            phone1.setType(1);
+
+            Phone phone2 = new Phone();
+            phone2.setNumber("+1-561-555-0145");
+            phone2.setType(2);
+            customer.addPhoneNumber(phone1);
+            customer.addPhoneNumber(phone2);
 
             // 2 - Delegate the persistence to the controller - System operation
             customerController.persist(customer);
