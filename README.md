@@ -276,3 +276,26 @@ public class CreditCard implements Serializable {
 </pre>
 
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_13.png" widht=650 height=245 alt="UML class diagram"></a></p>
+
+
+### 14 - jpa-hands-on
+   -  This example illustrates the use of <strong>UNIDIRECTIONAL ONE-TO-MANY RELATIONSHIP</strong> between Customer and Phone. 
+   - In that sense, we create a Phone entity class and associtated in a unidirectional way with the Customer entity class.
+   - I updated the CustomerTest (methods createCustomer and updateCustomer) to read phone information from the keyboard.
+   - I updated the method populateCustomerTable in the class Database utility to persist some phone numbers associated with customers.
+    - I updated the <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/> on persistence.xml to allow dropping database tables every time i Run the classes CustomerTest and CabinTest.
+
+   
+<pre>
+@Entity
+@Table(name="CUSTOMER")
+public class Customer implements Serializable {
+    ...
+    
+    <strong>@OneToMany(cascade = CascadeType.ALL)</strong>
+    <strong>@JoinColumn(name="CustomerID ")</strong>
+    private Collection<Phone> phoneNumbers = new ArrayList<>();
+    
+    ...
+}
+</pre>
