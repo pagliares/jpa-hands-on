@@ -303,3 +303,32 @@ public class Customer implements Serializable {
  - I updated the CustomerTest (methods createCustomer and updateCustomer) to read phone information from the keyboard.
  - I updated the method populateCustomerTable in the class Database utility to persist some phone numbers associated with customers.
  - I updated the <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/> on persistence.xml to allow dropping database tables every time i Run the classes CustomerTest and CabinTest.
+ 
+
+### 15 - jpa-hands-on
+   -  Some developers prefer to use an association table when mapping an <strong>UNIDIRECTIONAL ONE-TO-MANY</strong> relationship, such as Customer and Phone (See previous example in this repository).
+   - In this scenario, the association table has two columns with foreign keys pointing to both CUSTOMER and PHONE records.
+   - To have this type of mapping, we need to change from a @JoinColumn annotation (see previous example) in our Customer bean class to a @JoinTable annotation.  
+
+<pre>
+@Entity
+@Table(name="CUSTOMER")
+public class Customer implements Serializable {
+    ...
+    
+    <strong>@OneToMany(cascade = CascadeType.ALL)</strong>
+    <strong>@JoinTable(name="CUSTOMER_PHONE",
+                       joinColumns = { @JoinColumn(name="CUSTOMER_ID") },
+                       inverseJoinColumns = {@JoinColumn(name="PHONE_ID")}) </strong>
+    // @JoinColumn(name="CustomerID ")
+    private Collection<Phone> phoneNumbers = new ArrayList<>();
+    
+    ...
+}
+</pre>
+
+- The joincolumns( ) attibute should define a foreign key mapping to the primary key of the owning side of the relationship
+- The inverseJoinColumns ( ) attribute maps the nonowning side.
+- With this definition, the primary key for Customer maps to CUSTOMER_ID join column in the CUSTOMER_PHONE table. The primary key of the Phone entity maps to the PHONE_ID join column in the CUSTOMER_PHONE table.
+- Because the relationship between customers and phones is one-to-many, a unique constraint will be put on the PHONE_ID column of the CUSTOMER_PHONE table by the persistence provider if it supports and if you have activated DDL generation.
+- As per the definition of the relationship, one customer has many phones, but a phone has only one customer. The unique constraint enforces this.
