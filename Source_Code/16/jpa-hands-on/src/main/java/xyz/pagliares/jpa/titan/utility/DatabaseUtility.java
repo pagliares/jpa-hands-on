@@ -5,8 +5,10 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import xyz.pagliares.jpa.titan.CustomerTest;
 import xyz.pagliares.jpa.titan.controller.CustomerController;
+import xyz.pagliares.jpa.titan.controller.ShipController;
 import xyz.pagliares.jpa.titan.entity.*;
 import xyz.pagliares.jpa.titan.integration.CustomerDAO;
+import xyz.pagliares.jpa.titan.integration.ShipDAO;
 
 import java.time.LocalDate;
 import java.util.Random;
@@ -16,14 +18,20 @@ public class DatabaseUtility {
     private static EntityManager entityManager;
 
     private static CustomerController customerController;
+    private static ShipController shipController;
+
 
     private static CustomerDAO customerDAO;
+    private static ShipDAO shipDAO;
+
 
     static {
         entityManagerFactory = Persistence.createEntityManagerFactory("jpa-hands-on");
         entityManager = entityManagerFactory.createEntityManager();
         customerDAO = new CustomerDAO(entityManager);
         customerController = new CustomerController(customerDAO);
+        shipDAO = new ShipDAO(entityManager);
+        shipController = new ShipController(shipDAO);
     }
     public static EntityManager getEntityManager() {
         return entityManager;
@@ -47,7 +55,7 @@ public class DatabaseUtility {
     public static void populateCustomerTable() {
         Random random = new Random();
         // Considering dates that start on 01/01/1930.
-        LocalDate initialDate = LocalDate.of(1930,1, 1);
+        LocalDate initialDate = LocalDate.of(1930, 1, 1);
 
         // Considering dates that ends now
         LocalDate endDate = LocalDate.now();
@@ -58,19 +66,19 @@ public class DatabaseUtility {
         for (int i = 0; i <= 9; i++) {
             customer.setFirstName("First_name" + i);
             customer.setLastName("Last name" + i);
-            customer.setSsn(123456L+i);
+            customer.setSsn(123456L + i);
             customer.setBirthDate(CustomerTest.generateRandomDateBetweenTwoObjectsLocalDate(initialDate, endDate));
-            int result = random.nextInt(3)+1;
+            int result = random.nextInt(3) + 1;
             if (result == 1)
                 customer.setCustomerType(CustomerType.REGISTERED);
-            else if (result ==2)
+            else if (result == 2)
                 customer.setCustomerType(CustomerType.UNREGISTERED);
             else
                 customer.setCustomerType(CustomerType.BIG_SPENDAH);
 
             String street = "Fake street " + i;
             String city = "Fake city " + i;
-            String state = "F"+i;
+            String state = "F" + i;
 
             Address fakeAddress = new Address();
             fakeAddress.setStreet(street);
@@ -83,14 +91,14 @@ public class DatabaseUtility {
 
             if (result == 1)
                 creditCard.setOrganization("VISA");
-            else if (result ==2)
+            else if (result == 2)
                 creditCard.setOrganization("MASTERCARD");
-            else if (result ==3)
+            else if (result == 3)
                 creditCard.setOrganization("DINNERS");
 
             creditCard.setName("Atticus Finch");
             creditCard.setExpiration(LocalDate.of(2027, 5, 1));
-            creditCard.setNumber(i+"234-4567-7890-0123");
+            creditCard.setNumber(i + "234-4567-7890-0123");
             creditCard.setSecurityCode(12 + i);
 
             // Configure the bidirectional association
@@ -114,7 +122,20 @@ public class DatabaseUtility {
             // 3 - creates another customer
             customer = new Customer();
         }
+    }
 
+    public static void populateShipTable() {
+        Ship ship1 = new Ship();
+        ship1.setName("Titanic");
+        ship1.setTonnage(50_000.00);
 
+        Ship ship2 = new Ship();
+        ship2.setName("Celebrity");
+        ship2.setTonnage(75_000.00);
+
+        // 2 - Delegate the persistence to the controller - System operation
+        shipController.persist(ship1);
+        shipController.persist(ship2);
     }
 }
+

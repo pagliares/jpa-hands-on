@@ -10,6 +10,8 @@
         <class>xyz.pagliares.jpa.titan.entity.Address</class>
         <class>xyz.pagliares.jpa.titan.entity.CreditCard</class>
         <class>xyz.pagliares.jpa.titan.entity.Phone</class>
+        <class>xyz.pagliares.jpa.titan.entity.Ship</class>
+        <class>xyz.pagliares.jpa.titan.entity.Cruise</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

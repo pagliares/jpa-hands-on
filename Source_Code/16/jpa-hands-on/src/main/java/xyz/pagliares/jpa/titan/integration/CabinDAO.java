@@ -5,7 +5,6 @@ import jakarta.persistence.Query;
 import xyz.pagliares.jpa.titan.entity.Cabin;
 import xyz.pagliares.jpa.titan.entity.Customer;
 import xyz.pagliares.jpa.titan.entity.exception.CabinNotFoundException;
-import xyz.pagliares.jpa.titan.entity.exception.CustomerNotFoundException;
 
 import java.util.List;
 

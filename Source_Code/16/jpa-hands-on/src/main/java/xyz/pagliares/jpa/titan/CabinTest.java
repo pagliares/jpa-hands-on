@@ -4,20 +4,13 @@ import jakarta.persistence.EntityManager;
 import xyz.pagliares.jpa.titan.controller.CabinController;
 import xyz.pagliares.jpa.titan.entity.Cabin;
 import xyz.pagliares.jpa.titan.entity.Customer;
-import xyz.pagliares.jpa.titan.entity.CustomerType;
 import xyz.pagliares.jpa.titan.entity.exception.CabinNotFoundException;
-import xyz.pagliares.jpa.titan.entity.exception.CustomerNotFoundException;
-import xyz.pagliares.jpa.titan.entity.exception.CustomerTypeNotFoundException;
 import xyz.pagliares.jpa.titan.integration.CabinDAO;
 import xyz.pagliares.jpa.titan.utility.DatabaseUtility;
 import xyz.pagliares.jpa.titan.utility.KeyboardInput;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class CabinTest {
     private static EntityManager entityManager = DatabaseUtility.getEntityManager();
