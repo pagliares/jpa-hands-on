@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "CREDIT_CARD")
 public class CreditCard implements Serializable {
     private int id;
     private LocalDate expiration;

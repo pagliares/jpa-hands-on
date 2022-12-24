@@ -4,9 +4,12 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import xyz.pagliares.jpa.titan.CustomerTest;
+import xyz.pagliares.jpa.titan.controller.CruiseController;
 import xyz.pagliares.jpa.titan.controller.CustomerController;
 import xyz.pagliares.jpa.titan.controller.ShipController;
 import xyz.pagliares.jpa.titan.entity.*;
+import xyz.pagliares.jpa.titan.entity.exception.ShipNotFoundException;
+import xyz.pagliares.jpa.titan.integration.CruiseDAO;
 import xyz.pagliares.jpa.titan.integration.CustomerDAO;
 import xyz.pagliares.jpa.titan.integration.ShipDAO;
 
@@ -20,9 +23,12 @@ public class DatabaseUtility {
     private static CustomerController customerController;
     private static ShipController shipController;
 
+    private static CruiseController cruiseController;
 
     private static CustomerDAO customerDAO;
     private static ShipDAO shipDAO;
+
+    private static CruiseDAO cruiseDAO;
 
 
     static {
@@ -32,6 +38,8 @@ public class DatabaseUtility {
         customerController = new CustomerController(customerDAO);
         shipDAO = new ShipDAO(entityManager);
         shipController = new ShipController(shipDAO);
+        cruiseDAO = new CruiseDAO(entityManager);
+        cruiseController = new CruiseController(cruiseDAO);
     }
     public static EntityManager getEntityManager() {
         return entityManager;
@@ -136,6 +144,20 @@ public class DatabaseUtility {
         // 2 - Delegate the persistence to the controller - System operation
         shipController.persist(ship1);
         shipController.persist(ship2);
+    }
+
+    public static void populateCruiseTable() throws ShipNotFoundException {
+        Cruise cruise1 = new Cruise();
+        cruise1.setName("Caribbean sea");
+        cruise1.setShip(shipController.findShip(1));
+
+        Cruise cruise2 = new Cruise();
+        cruise2.setName("Greek islands");
+        cruise2.setShip(shipController.findShip(2));
+
+        // 2 - Delegate the persistence to the controller - System operation
+        cruiseController.persist(cruise1);
+        cruiseController.persist(cruise2);
     }
 }
 

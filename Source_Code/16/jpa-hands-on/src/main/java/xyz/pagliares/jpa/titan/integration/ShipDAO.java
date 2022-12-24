@@ -3,7 +3,6 @@ package xyz.pagliares.jpa.titan.integration;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import xyz.pagliares.jpa.titan.entity.Ship;
-import xyz.pagliares.jpa.titan.entity.exception.CustomerNotFoundException;
 import xyz.pagliares.jpa.titan.entity.exception.ShipNotFoundException;
 import java.util.List;
 

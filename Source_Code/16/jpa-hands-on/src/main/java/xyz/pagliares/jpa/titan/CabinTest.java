@@ -3,7 +3,6 @@ package xyz.pagliares.jpa.titan;
 import jakarta.persistence.EntityManager;
 import xyz.pagliares.jpa.titan.controller.CabinController;
 import xyz.pagliares.jpa.titan.entity.Cabin;
-import xyz.pagliares.jpa.titan.entity.Customer;
 import xyz.pagliares.jpa.titan.entity.exception.CabinNotFoundException;
 import xyz.pagliares.jpa.titan.integration.CabinDAO;
 import xyz.pagliares.jpa.titan.utility.DatabaseUtility;

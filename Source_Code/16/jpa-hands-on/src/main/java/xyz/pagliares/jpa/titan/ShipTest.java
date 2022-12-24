@@ -16,7 +16,6 @@ public class ShipTest {
     private static ShipDAO shipDAO = new ShipDAO(entityManager);
     private static ShipController shipController = new ShipController(shipDAO);
 
-
     public static void main(String[] args) {
         System.out.println("Populating SHIP table with fake data to ease testing");
         DatabaseUtility.populateShipTable();
