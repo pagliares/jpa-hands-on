@@ -332,3 +332,30 @@ public class Customer implements Serializable {
 - With this definition, the primary key for Customer maps to CUSTOMER_ID join column in the CUSTOMER_PHONE table. The primary key of the Phone entity maps to the PHONE_ID join column in the CUSTOMER_PHONE table.
 - Because the relationship between customers and phones is one-to-many, a unique constraint will be put on the PHONE_ID column of the CUSTOMER_PHONE table by the persistence provider if it supports and if you have activated DDL generation.
 - As per the definition of the relationship, one customer has many phones, but a phone has only one customer. The unique constraint enforces this.
+
+
+### 16 - jpa-hands-on
+   -  This example illustrates the use of <strong>UNIDIRECTIONAL MANY-TO-ONE RELATIONSHIP</strong> between Cruise and Ship. 
+   
+   <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_16.png" width=559 height=252 alt="UML class diagram"></a></p>
+
+   
+   - In that sense, we create a Cruise entity class and associtated in a unidirectional way with the Ship entity class.
+ 
+<pre>
+@Entity
+public class Cruise implements Serializable {
+    ...
+    
+   <strong>@ManyToOne</strong>
+   <strong>@JoinColumn(name="SHIP_ID")</strong>
+    public Ship getShip() {
+        return ship;
+    }
+    
+    ...
+}
+</pre>
+
+ - The example also includes support to populate the database tables SHIP and CRUISE at startup
+ - The example includes the classes CruiseTest and CabinTest (along with the controllers, DAOs and Exceptions for Cruise and Ship) in order to  read ship and cruise information from the keyboard.
