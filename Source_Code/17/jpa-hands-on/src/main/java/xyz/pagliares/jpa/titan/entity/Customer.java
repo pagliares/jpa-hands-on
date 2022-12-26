@@ -27,23 +27,6 @@ public class Customer implements Serializable {
     @Enumerated(EnumType.STRING)
     private CustomerType customerType;
 
-    /**
-     * A customer has one address. Contrast this solution with
-     * the solution presented in the previous example
-     * that used @Embedded, @AttributeOverrides, @AttributeOverride, and @Embeddable
-     * If you want, you can customize the name of the column to be
-     * created in the table Customer by using the annotation
-     * @JoinColumn. For example, @JoinColumn(name="ADDR_ID")
-     * The attribute cascade with value CascadeType.ALL indicates to
-     * JPA that if we remove a customer, we also want to automatically
-     * delete its address associated. In the same way, if we persist
-     * a customer, it's address will be persisted automatically as well.
-     * CascadeType has other constants, for example CascadeType.PERSIST
-     * If you use CascadeType.PERSIST you are telling JPA that if you
-     * persist a customer, you also want to persist its address, but
-     * if you remove a customer, the associate address WILL NOT be
-     * deleted from the database.
-     */
     @OneToOne(cascade={CascadeType.ALL})
     // @JoinColumn(name="ADDR_ID")
     private Address address;
@@ -54,9 +37,9 @@ public class Customer implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL)
     //@JoinColumn(name="CustomerID ")
-    @JoinTable(name="CUSTOMER_PHONE",
-                joinColumns = { @JoinColumn(name="CUSTOMER_ID") },
-                inverseJoinColumns = {@JoinColumn(name="PHONE_ID")})
+    //    @JoinTable(name="CUSTOMER_PHONE",
+    //                joinColumns = { @JoinColumn(name="CUSTOMER_ID") },
+    //                inverseJoinColumns = {@JoinColumn(name="PHONE_ID")})
     private Collection<Phone> phoneNumbers = new ArrayList<>();
 
     public Customer() {

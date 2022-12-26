@@ -14,15 +14,11 @@ import java.util.Random;
 
 public class CabinTest {
     private static EntityManager entityManager = DatabaseUtility.getEntityManager();
-
     private static CabinDAO cabinDAO = new CabinDAO(entityManager);
     private static CabinController cabinController = new CabinController(cabinDAO);
 
-
     public static void main(String[] args) {
-        System.out.println("Populating Cabin table with fake data to ease testing");
-        populateCabinTable();
-        System.out.println("10 cabins in the Cabin table were created");
+        DatabaseUtility.populateDatabase();
 
         String choice = showMenu();
 
@@ -160,27 +156,6 @@ public class CabinTest {
             System.out.println(cabins);
         } catch (CabinNotFoundException e) {
             System.out.println(e.getMessage());;
-        }
-    }
-
-    public static void populateCabinTable() {
-        Random random = new Random();
-
-        // 1 - create 10 cabin objects in order to have some  initial data in the
-        // table Cabin in the database
-        Cabin cabin = new Cabin();
-        for (int i = 1; i <= 10; i++) {
-            cabin.setName("Cabin name" + i);
-            int result = random.nextInt(5)+1;
-            cabin.setDeckLevel(result);
-            cabin.setShipId(5);
-            cabin.setBedCount(result);
-
-            // 2 - Delegate the persistence to the controller - System operation
-            cabinController.persist(cabin);
-
-            // 3 - creates another cabin
-            cabin = new Cabin();
         }
     }
 

@@ -3,11 +3,13 @@ package xyz.pagliares.jpa.titan.utility;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import xyz.pagliares.jpa.titan.controller.CabinController;
 import xyz.pagliares.jpa.titan.controller.CruiseController;
 import xyz.pagliares.jpa.titan.controller.CustomerController;
 import xyz.pagliares.jpa.titan.controller.ShipController;
 import xyz.pagliares.jpa.titan.entity.*;
 import xyz.pagliares.jpa.titan.entity.exception.ShipNotFoundException;
+import xyz.pagliares.jpa.titan.integration.CabinDAO;
 import xyz.pagliares.jpa.titan.integration.CruiseDAO;
 import xyz.pagliares.jpa.titan.integration.CustomerDAO;
 import xyz.pagliares.jpa.titan.integration.ShipDAO;
@@ -21,17 +23,26 @@ public class DatabaseUtility {
     private static CustomerController customerController;
     private static ShipController shipController;
     private static CruiseController cruiseController;
+    private static CabinController cabinController;
     private static CustomerDAO customerDAO;
     private static ShipDAO shipDAO;
     private static CruiseDAO cruiseDAO;
 
+    private static CabinDAO cabinDAO;
+
     static {
         entityManagerFactory = Persistence.createEntityManagerFactory("jpa-hands-on");
         entityManager = entityManagerFactory.createEntityManager();
+
+        cabinDAO = new CabinDAO(entityManager);
+        cabinController = new CabinController(cabinDAO);
+
         customerDAO = new CustomerDAO(entityManager);
         customerController = new CustomerController(customerDAO);
+
         shipDAO = new ShipDAO(entityManager);
         shipController = new ShipController(shipDAO);
+
         cruiseDAO = new CruiseDAO(entityManager);
         cruiseController = new CruiseController(cruiseDAO);
     }
@@ -46,7 +57,7 @@ public class DatabaseUtility {
     public static ShipDAO getShipDAO() {
         return shipDAO;
     }
-    
+
     public static CruiseDAO getCruiseDAO() {
         return cruiseDAO;
     }
@@ -149,6 +160,41 @@ public class DatabaseUtility {
         // 2 - Delegate the persistence to the controller - System operation
         cruiseController.persist(cruise1);
         cruiseController.persist(cruise2);
+    }
+
+    public static void populateDatabase() {
+        System.out.println("Populating whole database with fake data to ease testing");
+        populateCustomerTable();
+        populateCabinTable();
+        populateShipTable();
+        System.out.println("Database tables populated: Customer, Address, CreditCard, Phone, Ship, Cruise and Cabin");
+
+        try {
+            populateCruiseTable();
+        } catch (ShipNotFoundException shipNotFoundException) {
+            System.out.println(shipNotFoundException.getMessage());
+        }
+    }
+
+    public static void populateCabinTable() {
+        Random random = new Random();
+
+        // 1 - create 10 cabin objects in order to have some  initial data in the
+        // table Cabin in the database
+        Cabin cabin = new Cabin();
+        for (int i = 1; i <= 10; i++) {
+            cabin.setName("Cabin name" + i);
+            int result = random.nextInt(5)+1;
+            cabin.setDeckLevel(result);
+            cabin.setShipId(5);
+            cabin.setBedCount(result);
+
+            // 2 - Delegate the persistence to the controller - System operation
+            cabinController.persist(cabin);
+
+            // 3 - creates another cabin
+            cabin = new Cabin();
+        }
     }
 
     public static boolean close() {

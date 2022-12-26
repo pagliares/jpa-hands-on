@@ -7,7 +7,6 @@ import xyz.pagliares.jpa.titan.entity.Cruise;
 import xyz.pagliares.jpa.titan.entity.exception.CruiseNotFoundException;
 import xyz.pagliares.jpa.titan.entity.exception.ShipNotFoundException;
 import xyz.pagliares.jpa.titan.integration.CruiseDAO;
-import xyz.pagliares.jpa.titan.integration.CustomerDAO;
 import xyz.pagliares.jpa.titan.integration.ShipDAO;
 import xyz.pagliares.jpa.titan.utility.ConsoleUtility;
 import xyz.pagliares.jpa.titan.utility.DatabaseUtility;
@@ -20,19 +19,10 @@ public class CruiseTest {
     private static CruiseDAO cruiseDAO = new CruiseDAO(entityManager);
     private static CruiseController cruiseController = new CruiseController(cruiseDAO);
     private static ShipDAO shipDAO = new ShipDAO(entityManager);
-
     private static ShipController shipController = new ShipController(shipDAO);
 
     public static void main(String[] args) {
-        System.out.println("Populating SHIP and CRUISE tables with fake data to ease testing");
-        try {
-            DatabaseUtility.populateShipTable();
-            DatabaseUtility.populateCruiseTable();
-
-        } catch (ShipNotFoundException shipNotFoundException) {
-            System.out.println(shipNotFoundException.getMessage());
-        }
-        System.out.println("2 ships in the SHIP table were created");
+        DatabaseUtility.populateDatabase();
 
         String choice = showMenu();
 

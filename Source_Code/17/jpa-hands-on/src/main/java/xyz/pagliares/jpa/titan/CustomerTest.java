@@ -18,9 +18,7 @@ public class CustomerTest {
      private static CustomerController customerController = new CustomerController(customerDAO);
 
     public static void main(String[] args) {
-        System.out.println("Populating Customer table with fake data to ease testing");
-        DatabaseUtility.populateCustomerTable();
-        System.out.println("10 customers in the Customer table were created");
+        DatabaseUtility.populateDatabase();
 
         String choice = showMenu();
 
