@@ -54,7 +54,7 @@ public class CruiseTest {
             ConsoleUtility.clearConsole();
             choice = showMenu();
         }
-        close();
+        ConsoleUtility.close();
     }
     public static String showMenu() {
         String choice = null;
@@ -171,11 +171,6 @@ public class CruiseTest {
         } catch (CruiseNotFoundException e) {
             System.out.println(e.getMessage());;
         }
-    }
-
-    public static void close() {
-        DatabaseUtility.close();
-        System.exit(0);
     }
 }
 

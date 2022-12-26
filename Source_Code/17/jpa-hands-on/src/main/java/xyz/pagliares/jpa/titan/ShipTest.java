@@ -41,7 +41,7 @@ public class ShipTest {
             ConsoleUtility.clearConsole();
             choice = showMenu();
         }
-        close();
+        ConsoleUtility.close();
     }
     public static String showMenu() {
         String choice = null;
@@ -150,11 +150,6 @@ public class ShipTest {
         } catch (ShipNotFoundException e) {
             System.out.println(e.getMessage());;
         }
-    }
-
-    public static void close() {
-        DatabaseUtility.close();
-        System.exit(0);
     }
 }
 

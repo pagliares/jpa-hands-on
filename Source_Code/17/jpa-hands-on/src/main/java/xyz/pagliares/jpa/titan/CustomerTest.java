@@ -61,7 +61,7 @@ public class CustomerTest {
             ConsoleUtility.clearConsole();
             choice = showMenu();
         }
-        close();
+        ConsoleUtility.close();
     }
     public static String showMenu() {
         String choice = null;
@@ -301,11 +301,6 @@ public class CustomerTest {
         long randomDay = ThreadLocalRandom.current().nextLong(minDay, maxDay);
         LocalDate randomDate = LocalDate.ofEpochDay(randomDay);
         return (randomDate);
-    }
-
-    public static void close() {
-        DatabaseUtility.close();
-        System.exit(0);
     }
 
 }

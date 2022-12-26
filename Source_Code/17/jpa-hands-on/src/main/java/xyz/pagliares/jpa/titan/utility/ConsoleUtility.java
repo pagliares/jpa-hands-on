@@ -13,4 +13,9 @@ public class ConsoleUtility {
             System.out.println("");
         }
     }
+
+    public static void close() {
+        DatabaseUtility.close();
+        System.exit(0);
+    }
 }

@@ -43,7 +43,7 @@ public class CabinTest {
             ConsoleUtility.clearConsole();
             choice = showMenu();
         }
-        close();
+        ConsoleUtility.close();
     }
     public static String showMenu() {
         String choice = null;
@@ -184,9 +184,5 @@ public class CabinTest {
         }
     }
 
-    public static void close() {
-        DatabaseUtility.close();
-        System.exit(0);
-    }
 }
 
