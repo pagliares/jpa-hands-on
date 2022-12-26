@@ -34,9 +34,4 @@ public class CruiseDAO extends DAO {
         this.getEntityManager().remove(cruise);
         this.getEntityManager().getTransaction().commit();
     }
-    public void updateCruise(Cruise cruise) {
-        this.getEntityManager().getTransaction().begin();
-        this.getEntityManager().merge(cruise);
-        this.getEntityManager().getTransaction().commit();
-    }
 }

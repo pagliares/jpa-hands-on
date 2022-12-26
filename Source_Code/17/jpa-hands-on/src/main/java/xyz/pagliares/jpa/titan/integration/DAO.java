@@ -17,4 +17,10 @@ public abstract class DAO {
         this.getEntityManager().getTransaction().commit();
     }
 
+    public void update(Object entity) {
+        this.getEntityManager().getTransaction().begin();
+        this.getEntityManager().merge(entity);
+        this.getEntityManager().getTransaction().commit();
+    }
+
 }

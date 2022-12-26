@@ -33,9 +33,5 @@ public class ShipDAO extends DAO {
         this.getEntityManager().remove(ship);
         this.getEntityManager().getTransaction().commit();
     }
-    public void updateShip(Ship ship) {
-        this.getEntityManager().getTransaction().begin();
-        this.getEntityManager().merge(ship);
-        this.getEntityManager().getTransaction().commit();
-    }
+
 }

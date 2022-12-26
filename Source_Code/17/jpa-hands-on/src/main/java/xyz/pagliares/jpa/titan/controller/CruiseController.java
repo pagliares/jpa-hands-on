@@ -24,6 +24,6 @@ public class CruiseController {
         cruiseDAO.removeCruise(id);
     }
     public void updateCruise(Cruise cruise) {
-        cruiseDAO.updateCruise(cruise);
+        cruiseDAO.update(cruise);
     }
 }

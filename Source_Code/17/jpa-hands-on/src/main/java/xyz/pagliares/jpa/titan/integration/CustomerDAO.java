@@ -49,11 +49,6 @@ public class CustomerDAO extends DAO {
         this.getEntityManager().remove(customer);
         this.getEntityManager().getTransaction().commit();
     }
-    public void updateCustomer(Customer customer) {
-        this.getEntityManager().getTransaction().begin();
-        this.getEntityManager().merge(customer);
-        this.getEntityManager().getTransaction().commit();
-    }
 
     public void updateCustomerFirstName(Long id, String newFirstName) throws CustomerNotFoundException {
         Customer customer = this.getEntityManager().find(Customer.class, id);

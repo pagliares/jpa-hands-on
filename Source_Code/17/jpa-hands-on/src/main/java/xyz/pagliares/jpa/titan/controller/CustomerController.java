@@ -26,7 +26,7 @@ public class CustomerController {
         customerDAO.removeCustomer(id);
     }
     public void updateCustomer(Customer customer) {
-        customerDAO.updateCustomer(customer);
+        customerDAO.update(customer);
     }
 
     public void updateCustomerFirstName(Long id, String newFirstName) throws CustomerNotFoundException {

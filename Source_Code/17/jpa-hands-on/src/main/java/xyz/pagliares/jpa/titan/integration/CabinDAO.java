@@ -22,12 +22,6 @@ public class CabinDAO extends DAO {
         cabin.setBedCount(newCount);
     }
 
-    public void updateCabin(Cabin cabin) {
-        this.getEntityManager().getTransaction().begin();
-        this.getEntityManager().merge(cabin);
-        this.getEntityManager().getTransaction().commit();
-    }
-
     public void removeCabin(int id) {
         this.getEntityManager().getTransaction().begin();
         Cabin cabin = this.getEntityManager().find(Cabin.class, id);

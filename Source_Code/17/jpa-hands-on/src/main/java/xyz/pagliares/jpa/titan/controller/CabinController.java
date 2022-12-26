@@ -25,7 +25,7 @@ public class CabinController {
     }
 
     public void updateCabin(Cabin cabin) {
-        cabinDAO.updateCabin(cabin);
+        cabinDAO.update(cabin);
     }
 
     public void removeCabin(int id) throws CabinNotFoundException {

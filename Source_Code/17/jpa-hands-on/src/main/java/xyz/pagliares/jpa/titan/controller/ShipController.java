@@ -25,6 +25,6 @@ public class ShipController {
         shipDAO.removeShip(id);
     }
     public void updateShip(Ship ship) {
-        shipDAO.updateShip(ship);
+        shipDAO.update(ship);
     }
 }
