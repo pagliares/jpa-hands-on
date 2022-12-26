@@ -11,11 +11,6 @@ public class ShipDAO extends DAO {
         super(entityManager);
     }
 
-    public void persist(Ship ship) {
-        this.getEntityManager().getTransaction().begin();
-        this.getEntityManager().persist(ship);
-        this.getEntityManager().getTransaction().commit();
-    }
     public Ship findShip(int id) throws ShipNotFoundException{
         Ship ship = this.getEntityManager().find(Ship.class, id);
         if (ship == null)

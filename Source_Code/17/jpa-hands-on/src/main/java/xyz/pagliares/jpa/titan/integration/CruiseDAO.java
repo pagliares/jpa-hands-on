@@ -12,11 +12,6 @@ public class CruiseDAO extends DAO {
         super(entityManager);
     }
 
-    public void persist(Cruise cruise) {
-        this.getEntityManager().getTransaction().begin();
-        this.getEntityManager().persist(cruise);
-        this.getEntityManager().getTransaction().commit();
-    }
     public Cruise findCruise(int id) throws CruiseNotFoundException {
         Cruise cruise = this.getEntityManager().find(Cruise.class, id);
         if (cruise == null)

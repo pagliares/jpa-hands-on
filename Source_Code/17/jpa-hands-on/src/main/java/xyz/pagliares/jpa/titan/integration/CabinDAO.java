@@ -12,11 +12,7 @@ public class CabinDAO extends DAO {
     public CabinDAO(EntityManager entityManager) {
         super(entityManager);
     }
-    public void persist(Cabin cabin) {
-        this.getEntityManager().getTransaction().begin();
-        this.getEntityManager().persist(cabin);
-        this.getEntityManager().getTransaction().commit();
-    }
+
     public Cabin findCabin(int id){
         return this.getEntityManager().find(Cabin.class, id);
     }

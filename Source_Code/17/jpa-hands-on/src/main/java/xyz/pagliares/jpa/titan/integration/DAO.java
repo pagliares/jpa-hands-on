@@ -11,4 +11,10 @@ public abstract class DAO {
         return entityManager;
     }
 
+    public void persist(Object entity) {
+        this.getEntityManager().getTransaction().begin();
+        this.getEntityManager().persist(entity);
+        this.getEntityManager().getTransaction().commit();
+    }
+
 }
