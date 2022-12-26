@@ -359,3 +359,9 @@ public class Cruise implements Serializable {
 
  - The example also includes support to populate the database tables SHIP and CRUISE at startup
  - The example includes the classes CruiseTest and CabinTest (along with the controllers, DAOs and Exceptions for Cruise and Ship) in order to  read ship and cruise information from the keyboard.
+ 
+ ### 17 - jpa-hands-on
+   -  This example DOES NOT illustrate any new JPA concept. Instead, it is a refactored version of the previous example.
+   - We decided to refactor the code to eliminate duplicated code in classes CabinTest, CruiseTest, CustomerTest, ShipTest
+   - We also create a populateDatabase method on DatabaseUtility class to populate ALL database tables with fake data, instead of populating individual tables by running CabinTest, CruiseTest, CustomerTest, ShipTest.
+   - The example also refactors the DAOs classes hierarchy attempting to generalize some methods, in special persist and update methods.
