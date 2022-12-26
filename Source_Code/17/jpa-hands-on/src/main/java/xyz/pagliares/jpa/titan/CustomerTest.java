@@ -7,32 +7,15 @@ import xyz.pagliares.jpa.titan.entity.exception.CustomerTypeNotFoundException;
 import xyz.pagliares.jpa.titan.integration.CustomerDAO;
 import xyz.pagliares.jpa.titan.utility.ConsoleUtility;
 import xyz.pagliares.jpa.titan.utility.DatabaseUtility;
+import xyz.pagliares.jpa.titan.utility.DateTimeUtility;
 import xyz.pagliares.jpa.titan.utility.KeyboardInput;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
-import java.util.Locale;
 
 public class CustomerTest {
     private static CustomerDAO customerDAO = DatabaseUtility.getCustomerDAO();
      private static CustomerController customerController = new CustomerController(customerDAO);
-
-    /**
-     * In this example, we are going to read from the keyboard dates in Brazilian format (day/month/year)
-     * For example, 07/05/1977 for May 7th, 1977.
-     *
-     * If you rather use a format such as 07-May-1977, you can configure DateTimeFormatter as below:
-     * private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy", Locale.US);
-     * In this case, the month initials are: Jan, Fev, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec;
-     *
-     **/
-    private static Locale locale = new Locale("pt","BR");
-
-    // SimpleDateFormat was used Pre Java-SE 8. DateTimeFormatter is used since Java-SE 8)
-//    private static SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", locale);
-
-    private static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", locale);
 
     public static void main(String[] args) {
         System.out.println("Populating Customer table with fake data to ease testing");
@@ -218,7 +201,7 @@ public class CustomerTest {
         LocalDate birthDate = null;
         try {
             LocalDate currentBirthdate = customer.getBirthDate();
-            String dateFormatted = dateTimeFormatter.format(currentBirthdate);
+            String dateFormatted = DateTimeUtility.dateTimeFormatter.format(currentBirthdate);
 
             birthDate = KeyboardInput.readStringInputAsJavaLocalDate("Enter new customer birthdate (" + dateFormatted+")...: ");
 
