@@ -5,6 +5,7 @@ import xyz.pagliares.jpa.titan.controller.CabinController;
 import xyz.pagliares.jpa.titan.entity.Cabin;
 import xyz.pagliares.jpa.titan.entity.exception.CabinNotFoundException;
 import xyz.pagliares.jpa.titan.integration.CabinDAO;
+import xyz.pagliares.jpa.titan.utility.ConsoleUtility;
 import xyz.pagliares.jpa.titan.utility.DatabaseUtility;
 import xyz.pagliares.jpa.titan.utility.KeyboardInput;
 
@@ -39,7 +40,7 @@ public class CabinTest {
          }
 
             KeyboardInput.readInputAsString("Press <Enter/Return> key to return to the main menu");
-            clearConsole();
+            ConsoleUtility.clearConsole();
             choice = showMenu();
         }
         close();
@@ -183,18 +184,6 @@ public class CabinTest {
         }
     }
 
-    /**
-     * There isn't such an easy way to clear the console Screen in a portable manner.
-     * Most of the solutions only work for the operating system console
-     * (not the console bundled with the IDE of your choice).
-     * See https://rootstack.com/en/blog/java-clear-screen for more details.
-     * For our purposes, let's cheat a little bit :) !
-     **/
-    private static void clearConsole() {
-        for (int i = 0; i < 10; i++) {
-            System.out.println("");
-        }
-    }
     public static void close() {
         DatabaseUtility.close();
         System.exit(0);
