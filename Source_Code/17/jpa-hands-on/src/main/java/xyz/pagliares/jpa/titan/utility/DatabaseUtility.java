@@ -3,7 +3,6 @@ package xyz.pagliares.jpa.titan.utility;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import xyz.pagliares.jpa.titan.CustomerTest;
 import xyz.pagliares.jpa.titan.controller.CruiseController;
 import xyz.pagliares.jpa.titan.controller.CustomerController;
 import xyz.pagliares.jpa.titan.controller.ShipController;
@@ -75,7 +74,7 @@ public class DatabaseUtility {
             customer.setFirstName("First_name" + i);
             customer.setLastName("Last name" + i);
             customer.setSsn(123456L + i);
-            customer.setBirthDate(CustomerTest.generateRandomDateBetweenTwoObjectsLocalDate(initialDate, endDate));
+            customer.setBirthDate(DateTimeUtility.generateRandomDateBetweenTwoObjectsLocalDate(initialDate, endDate));
             int result = random.nextInt(3) + 1;
             if (result == 1)
                 customer.setCustomerType(CustomerType.REGISTERED);
