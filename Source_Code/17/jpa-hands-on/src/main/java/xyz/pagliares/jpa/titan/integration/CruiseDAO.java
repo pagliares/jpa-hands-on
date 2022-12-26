@@ -4,7 +4,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import xyz.pagliares.jpa.titan.entity.Cruise;
 import xyz.pagliares.jpa.titan.entity.exception.CruiseNotFoundException;
-
 import java.util.List;
 
 public class CruiseDAO extends DAO {
