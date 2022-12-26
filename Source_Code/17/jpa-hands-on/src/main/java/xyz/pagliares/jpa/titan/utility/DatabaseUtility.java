@@ -18,17 +18,12 @@ import java.util.Random;
 public class DatabaseUtility {
     private static EntityManagerFactory entityManagerFactory;
     private static EntityManager entityManager;
-
     private static CustomerController customerController;
     private static ShipController shipController;
-
     private static CruiseController cruiseController;
-
     private static CustomerDAO customerDAO;
     private static ShipDAO shipDAO;
-
     private static CruiseDAO cruiseDAO;
-
 
     static {
         entityManagerFactory = Persistence.createEntityManagerFactory("jpa-hands-on");
@@ -43,20 +38,17 @@ public class DatabaseUtility {
     public static EntityManager getEntityManager() {
         return entityManager;
     }
-    public static boolean close() {
-        if (entityManager.isOpen() || entityManager != null)
-            entityManager.close();
-        if (entityManagerFactory.isOpen() || entityManagerFactory != null)
-            entityManagerFactory.close();
-        return true;
-    }
 
     public static CustomerDAO getCustomerDAO() {
         return customerDAO;
     }
 
-    public static void setCustomerDAO(CustomerDAO customerDAO) {
-        DatabaseUtility.customerDAO = customerDAO;
+    public static ShipDAO getShipDAO() {
+        return shipDAO;
+    }
+    
+    public static CruiseDAO getCruiseDAO() {
+        return cruiseDAO;
     }
 
     public static void populateCustomerTable() {
@@ -157,6 +149,14 @@ public class DatabaseUtility {
         // 2 - Delegate the persistence to the controller - System operation
         cruiseController.persist(cruise1);
         cruiseController.persist(cruise2);
+    }
+
+    public static boolean close() {
+        if (entityManager.isOpen() || entityManager != null)
+            entityManager.close();
+        if (entityManagerFactory.isOpen() || entityManagerFactory != null)
+            entityManagerFactory.close();
+        return true;
     }
 }
 

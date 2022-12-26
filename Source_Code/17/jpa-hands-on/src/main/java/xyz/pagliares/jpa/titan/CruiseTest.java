@@ -7,6 +7,7 @@ import xyz.pagliares.jpa.titan.entity.Cruise;
 import xyz.pagliares.jpa.titan.entity.exception.CruiseNotFoundException;
 import xyz.pagliares.jpa.titan.entity.exception.ShipNotFoundException;
 import xyz.pagliares.jpa.titan.integration.CruiseDAO;
+import xyz.pagliares.jpa.titan.integration.CustomerDAO;
 import xyz.pagliares.jpa.titan.integration.ShipDAO;
 import xyz.pagliares.jpa.titan.utility.ConsoleUtility;
 import xyz.pagliares.jpa.titan.utility.DatabaseUtility;
@@ -16,10 +17,8 @@ import java.util.List;
 
 public class CruiseTest {
     private static EntityManager entityManager = DatabaseUtility.getEntityManager();
-
     private static CruiseDAO cruiseDAO = new CruiseDAO(entityManager);
     private static CruiseController cruiseController = new CruiseController(cruiseDAO);
-
     private static ShipDAO shipDAO = new ShipDAO(entityManager);
 
     private static ShipController shipController = new ShipController(shipDAO);
