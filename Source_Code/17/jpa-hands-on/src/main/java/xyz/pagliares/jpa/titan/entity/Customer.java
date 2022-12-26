@@ -1,7 +1,6 @@
 package xyz.pagliares.jpa.titan.entity;
 
 import jakarta.persistence.*;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -20,23 +19,20 @@ public class Customer implements Serializable {
     private String lastName;
     @Transient
     private long ssn;
-
     private LocalDateTime timeCreated;
     private LocalDate birthDate;
-
     @Enumerated(EnumType.STRING)
     private CustomerType customerType;
 
     @OneToOne(cascade={CascadeType.ALL})
     // @JoinColumn(name="ADDR_ID")
     private Address address;
-
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name="CREDIT_CARD_ID")
     private CreditCard creditCard;
 
     @OneToMany(cascade = CascadeType.ALL)
-    //@JoinColumn(name="CustomerID ")
+    @JoinColumn(name="CustomerID ")
     //    @JoinTable(name="CUSTOMER_PHONE",
     //                joinColumns = { @JoinColumn(name="CUSTOMER_ID") },
     //                inverseJoinColumns = {@JoinColumn(name="PHONE_ID")})

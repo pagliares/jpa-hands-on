@@ -1,6 +1,5 @@
 package xyz.pagliares.jpa.titan;
 
-import jakarta.persistence.EntityManager;
 import xyz.pagliares.jpa.titan.controller.CruiseController;
 import xyz.pagliares.jpa.titan.controller.ShipController;
 import xyz.pagliares.jpa.titan.entity.Cruise;
@@ -15,10 +14,9 @@ import xyz.pagliares.jpa.titan.utility.KeyboardInput;
 import java.util.List;
 
 public class CruiseTest {
-    private static EntityManager entityManager = DatabaseUtility.getEntityManager();
-    private static CruiseDAO cruiseDAO = new CruiseDAO(entityManager);
+    private static CruiseDAO cruiseDAO = DatabaseUtility.getCruiseDAO();
     private static CruiseController cruiseController = new CruiseController(cruiseDAO);
-    private static ShipDAO shipDAO = new ShipDAO(entityManager);
+    private static ShipDAO shipDAO = DatabaseUtility.getShipDAO();
     private static ShipController shipController = new ShipController(shipDAO);
 
     public static void main(String[] args) {

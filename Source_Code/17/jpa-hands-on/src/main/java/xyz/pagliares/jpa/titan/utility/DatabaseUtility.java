@@ -27,7 +27,6 @@ public class DatabaseUtility {
     private static CustomerDAO customerDAO;
     private static ShipDAO shipDAO;
     private static CruiseDAO cruiseDAO;
-
     private static CabinDAO cabinDAO;
 
     static {
@@ -60,6 +59,10 @@ public class DatabaseUtility {
 
     public static CruiseDAO getCruiseDAO() {
         return cruiseDAO;
+    }
+
+    public static CabinDAO getCabinDAO() {
+        return cabinDAO;
     }
 
     public static void populateCustomerTable() {

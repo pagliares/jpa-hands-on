@@ -1,6 +1,5 @@
 package xyz.pagliares.jpa.titan;
 
-import jakarta.persistence.EntityManager;
 import xyz.pagliares.jpa.titan.controller.ShipController;
 import xyz.pagliares.jpa.titan.entity.Ship;
 import xyz.pagliares.jpa.titan.entity.exception.ShipNotFoundException;
@@ -12,9 +11,7 @@ import xyz.pagliares.jpa.titan.utility.KeyboardInput;
 import java.util.List;
 
 public class ShipTest {
-    private static EntityManager entityManager = DatabaseUtility.getEntityManager();
-
-    private static ShipDAO shipDAO = new ShipDAO(entityManager);
+    private static ShipDAO shipDAO = DatabaseUtility.getShipDAO();
     private static ShipController shipController = new ShipController(shipDAO);
 
     public static void main(String[] args) {

@@ -1,6 +1,5 @@
 package xyz.pagliares.jpa.titan;
 
-import jakarta.persistence.EntityManager;
 import xyz.pagliares.jpa.titan.controller.CabinController;
 import xyz.pagliares.jpa.titan.entity.Cabin;
 import xyz.pagliares.jpa.titan.entity.exception.CabinNotFoundException;
@@ -10,11 +9,9 @@ import xyz.pagliares.jpa.titan.utility.DatabaseUtility;
 import xyz.pagliares.jpa.titan.utility.KeyboardInput;
 
 import java.util.List;
-import java.util.Random;
 
 public class CabinTest {
-    private static EntityManager entityManager = DatabaseUtility.getEntityManager();
-    private static CabinDAO cabinDAO = new CabinDAO(entityManager);
+    private static CabinDAO cabinDAO = DatabaseUtility.getCabinDAO();
     private static CabinController cabinController = new CabinController(cabinDAO);
 
     public static void main(String[] args) {
