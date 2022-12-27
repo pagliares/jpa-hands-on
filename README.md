@@ -365,3 +365,43 @@ public class Cruise implements Serializable {
    - We decided to refactor the code to eliminate duplicated code in classes CabinTest, CruiseTest, CustomerTest, ShipTest
    - We also create a populateDatabase method on DatabaseUtility class to populate ALL database tables with fake data, instead of populating individual tables by running CabinTest, CruiseTest, CustomerTest, ShipTest.
    - The example also refactors the DAOs classes hierarchy attempting to generalize some methods, in special persist and update methods.
+   
+### 18 - jpa-hands-on
+   -  This example illustrates the use of <strong>BIDIRECTIONAL ONE-TO-MANY RELATIONSHIP</strong> between Cruise and Reservation. 
+   
+   <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_18.png" width=567 height=252 alt="UML class diagram"></a></p>
+
+   - In that sense, we create a Reservation entity class and associtated in a bidirectional way with the Ship entity class.
+ 
+<pre>
+@Entity
+public class Cruise implements Serializable {
+    ...
+    
+    <strong>@OneToMany(mappedBy = "cruise")</strong>
+    public Collection<Reservation> getReservations() {
+        return reservations;
+    }
+    
+    ...
+}
+
+@Entity
+public class Reservation implements Serializable {
+    ...
+    
+    <strong>@ManyToOne
+    @JoinColumn(name="CRUISE_ID")</strong>
+    public Cruise getCruise() {
+        return cruise;
+    }
+    
+    ...
+}
+</pre>
+
+   - Remember to <strong>ALWAYS</strong> wire both sides of a bidirectional relationship in your Java code.
+   - If a customer wants to book a different cruise, he needs to delete the old reservation and create a new one. So, instead of setting Reservation.setCruise( ) to null, application code would just remove Reservation:
+   
+   <pre>entityManager.remove(reservation);</pre>
+   - Since the Reservation entity is the owning side of the relationship, the Cruise's reservation property is updated with the removal the next time it is loaded from the database.
