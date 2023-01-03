@@ -405,3 +405,47 @@ public class Reservation implements Serializable {
    
    <pre>entityManager.remove(reservation);</pre>
    - Since the Reservation entity is the owning side of the relationship, the Cruise's reservation property is updated with the removal the next time it is loaded from the database.
+   
+### 19 - jpa-hands-on
+   -  This example illustrates the use of <strong>BIDIRECTIONAL MANY-TO-MANY RELATIONSHIP</strong> between Customer and Reservation. 
+   
+   <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_19.png" width=567 height=252 alt="UML class diagram"></a></p>
+
+- In Titan cruises, each Reservation entity may reference many Customers (a family can make a single reservation), and each Customer can have many Reservations.
+- In this many-to-many bidirectional relationship, the Customer keeps track of all of its reservations, and each reservation may be for many customers.
+- Many-to-many bidirectional relationships ALWAYS require an association table in a normalized relational database.
+
+<pre>
+@Entity
+public class Customer implements Serializable {
+    ...
+    <strong>private Collection<Reservation> reservations = new ArrayList<>();</strong>
+
+    <strong>@ManyToMany(mappedBy = "customers")</strong>
+    public Collection<Reservation> getReservations() {
+        return reservations;
+    }
+    
+    ...
+}
+</pre>
+
+<pre>
+@Entity
+public class Reservation implements Serializable {
+    ...
+    <strong>private Set<Customer> customers = new HashSet<>();</strong>
+
+    <strong>@ManyToMany
+    @JoinTable(name="RESERVATION_CUSTOMER",
+                joinColumns={@JoinColumn(name="RESERVATION_ID")},
+                inverseJoinColumns={@JoinColumn(name="CUSTOMER_ID")})</strong>
+    public Set<Customer> getCustomers() {
+        return customers;
+    }
+    
+    ...
+}
+</pre>
+
+- The @JoinTable is optional. It can be used to tailor the name of the join table and its columns.
