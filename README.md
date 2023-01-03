@@ -449,3 +449,15 @@ public class Reservation implements Serializable {
 </pre>
 
 - The @JoinTable is optional. It can be used to tailor the name of the join table and its columns.
+- As with ALL bidirectional relationships, there has to be an owning side. In this example, it is the Reservation entity.
+- Since the Reservation owns the relationship, its bean defines the @JoinTable mapping.
+- The mappedBy attribute on class Customer identifies the property on the Reservation bean class that defines the relationship. This also identifies the Customer entity as the inverse side of the relationship.
+- The Customer/Reservation relationship is something our Titan Cruises application may want to modify after it is established:
+
+<pre>
+Reservation reservation = em.find(Reservation.class, id);
+reservation.getCustomers().remove(customer);
+</pre>
+
+- Since Reservation is the owning side of the relationship, you must remove the Customer from the Reservation's customer property.
+- If you instead removed the Reservation from the Customer's reservation property, there would be no database update because the Customer entity is the inverse side of the relationship.
