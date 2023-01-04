@@ -466,3 +466,10 @@ reservation.getCustomers().remove(customer);
    -  This example illustrates the use of <strong>UNIDIRECTIONAL MANY-TO-MANY RELATIONSHIP</strong> between Reservation and Cabin. 
    
    <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_20.png" width=675 height=210 alt="UML class diagram"></a></p>
+
+- In Titan's reservation system, every Reservation is assigned a Cabin on the Ship. 
+- This allows the Customer to reserve a specific Cabin on the Ship.
+- Each reservation may be for more than one cabin, since each Reservation can be for more than one Customer.
+   - For example, a family might make a Reservation for five people for two adjacents Cabins.
+
+
