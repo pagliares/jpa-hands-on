@@ -461,3 +461,8 @@ reservation.getCustomers().remove(customer);
 
 - Since Reservation is the owning side of the relationship, you must remove the Customer from the Reservation's customer property.
 - If you instead removed the Reservation from the Customer's reservation property, there would be no database update because the Customer entity is the inverse side of the relationship.
+
+### 20 - jpa-hands-on
+   -  This example illustrates the use of <strong>UNIDIRECTIONAL MANY-TO-MANY RELATIONSHIP</strong> between Reservation and Cabin. 
+   
+   <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_20.png" width=675 height=210 alt="UML class diagram"></a></p>
