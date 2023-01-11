@@ -472,4 +472,57 @@ reservation.getCustomers().remove(customer);
 - Each reservation may be for more than one cabin, since each Reservation can be for more than one Customer.
    - For example, a family might make a Reservation for five people for two adjacents Cabins.
 
+### 21 - jpa-inheritance
 
+-  This example illustrates how to use the strategy Single-Table to map the concept of inheritance of object orientation to a relational model.
+ 
+<pre>
+@Entity
+@Table(name="PERSON_HIERARCHY")
+<strong>@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="DISCRIMINATOR", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorValue("Person") </strong> // Optional 
+public class Person {
+    private int id;
+    private String firstName;
+    private String lastName;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int getId() {
+        return id;
+    }
+    ...
+    ...
+} 
+
+@Entity
+<strong>@DiscriminatorValue("Customer")</strong>
+public class Customer extends Person {
+   ...
+   ...
+}
+
+@Entity
+public class Employee extends Customer {
+  ...
+}
+
+</pre>
+ 
+ - The following image illustrates the inheritance hierachy used in the example.
+   <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Inheritance.png" width=217 height=831 alt="UML class diagram"></a></p>
+   
+   
+- The following image illustrates the corresponding relational model for the inheritance hierachy used in the example.
+   <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Relational_Model_Single_Table.png" width=975 height=137 alt="UML class diagram"></a></p>
+   
+<strong>Advantages of single table mapping:</strong>
+   - Simplest to implement and performs better than all the inheritance strategies.
+   - There is only one table to administer and deal with.
+   - The persistence engine does not have to do any complex joins, unions, or subselects when loading the entity or when traversing a polymorphic relationhsip, because all data is stored in one table.
+   
+<strong>Disadvantages of single table mapping:</strong>
+- One huge disadvantage is that all columns of subclass properties must be nullable.
+- If you need or want to have NOT-NULL constraints defined on these columns, you cannot.
+- Also, because subclass property columns may be unused, the single table strategy is not normalized.
