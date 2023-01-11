@@ -569,3 +569,47 @@ public class Employee extends Customer{
 - Not as fast as the SINGLE_TABLE strategy
 - It is probably not wise to pick this strategy when developing your entity beans, unless you absolutely have to.
 
+
+### 23 - jpa-inheritance
+
+-  This example illustrates how to use the strategy <strong>TABLE_PER_SUBCLASS </strong> to map the concept of inheritance (object oriented model) to a relational model.
+ 
+<pre>
+@Entity
+<strong>@Inheritance(strategy = InheritanceType.JOINED)</strong>
+public class Person {
+   ...
+   ...
+}
+
+@Entity
+public class Customer extends Person {
+ ...
+ ...
+}
+
+@Entity
+<strong>@PrimaryKeyJoinColumn(name="EMPLOYEE_PK")</strong>
+public class Employee extends Customer{
+  ...
+  ...
+}
+</pre>
+
+- The following 3 images illustrate the corresponding relational model for the strategy TABLE_PER_SUBCLASS when mapping the inheritance hierachy used in the example for the classes <strong>Person</strong>, <strong>Customer</strong>, and <strong>Employee</strong>, respectively.
+
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Table_Per_Subclass_Person.png" width=349 height=128 alt="UML class diagram"></p>
+
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Table_Per_Subclass_Customer.png" width=464 height=98 alt="UML class diagram"></p>
+
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Table_Per_Subclass_Employee.png" width=251 height=56 alt="UML class diagram"></p>
+
+<strong>Advantages of TABLE_PER_SUBCLASS mapping:</strong>
+- Although not as fast as the SINGLE_TABLE strategy, you are able to define NOT NULL constraints on any column of any table.
+- The model is normalized.
+- This mapping is better than TABLE_PER_CLASS strategy for two reasons:
+   - The model is normalized.
+   - It performs better if SQL UNIONS are not supported by the subjacent database managemen system.
+  
+<strong>Disadvantages of TABLE_PER_SUBCLASS mapping:</strong>
+- It does not perform so well as the SINGLE_TABLE strategy.
