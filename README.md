@@ -642,3 +642,46 @@ public class Employee extends Customer{
   ...
 }
 </pre>
+
+### 25 - Queries and EJB-QL
+
+<strong>Introduction to queries with JPA and EJB-QL</strong>
+
+- This is the first of a sequence of examples about queries in JPA and EJB-QL.
+- Queries in JPA are done using both EJB Query Language and native Structured Query Language (SQL)
+- EJB-QL is a declarative query language similar to SQL, but it is tailored to work with Java objects rather than a relational schema.
+- When an EJB QL language is executed, the entity manager translates it to one (or several) SQL query.
+   - The generated SQL query is then executed through a JDBC driver directly in the database.
+- EJB QL is portable across vendor database implementations.
+- EJB QL and native SQL queries are executed through jakarta.persistence.Quey interface
+- The Query interface is analogous to java.sql.PreparedStatement interface of JDBC.
+- In this example present an initial example with the <strong>Query Interface</strong>. 
+
+<pre>
+public class <strong>QueryAPITest</strong> {
+    ...
+    public static void main(String[] args) {
+        ...
+        // Persisting one more customer
+        Customer gregor = new Customer();
+        gregor.setFirstName("Gregor");
+        gregor.setLastName("Samsa");
+        gregor.setBirthDate(LocalDate.of(1800, 5, 5));
+
+        customerDAO.persist(gregor);
+
+        // Verifying whether Gregor Samsa was correctly persisted
+        try {
+            <strong>Query query = entityManager.createQuery(
+                    "Select c from Customer c where c.firstName = 'Gregor' and c.lastName = 'Samsa'");
+            Customer customer = (Customer)query.getSingleResult();</strong>
+            System.out.println("Customer found! (details below)");
+            System.out.println(customer);
+        }
+        catch(NoResultException noResultException){
+            System.out.println("No customer found !");
+        }
+        ...
+    }
+}
+</pre>
