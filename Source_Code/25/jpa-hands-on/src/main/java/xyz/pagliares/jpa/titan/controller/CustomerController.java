@@ -19,6 +19,13 @@ public class CustomerController {
     public Customer findCustomer(Long id) throws CustomerNotFoundException{
         return customerDAO.findCustomer(id);
     }
+
+    public List<Customer> findCustomer(String firstName, String secondName) throws CustomerNotFoundException{
+        List<Customer> customers =  customerDAO.findByName(firstName, secondName);
+        if (customers.size() == 0)
+            throw new CustomerNotFoundException("Customer(s) not found !");
+        return customers;
+    }
     public List<Customer> listAllCustomers() throws CustomerNotFoundException {
         return customerDAO.listAllCustomers();
     }

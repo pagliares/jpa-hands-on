@@ -16,13 +16,18 @@ import java.util.List;
 public class CustomerTest {
     private static CustomerDAO customerDAO = DatabaseUtility.getCustomerDAO();
      private static CustomerController customerController = new CustomerController(customerDAO);
-
     public static void main(String[] args) {
         DatabaseUtility.populateDatabase();
+        // Persisting one more customer
+        Customer gregor = new Customer();
+        gregor.setFirstName("Gregor");
+        gregor.setLastName("Samsa");
+        gregor.setBirthDate(LocalDate.of(1800, 5, 5));
+        customerDAO.persist(gregor);
 
         String choice = showMenu();
 
-        while (!choice.equals("7")) {
+        while (!choice.equals("8")) {
             try {
                 switch (choice) {
                     case "1" -> createCustomer();
@@ -31,6 +36,7 @@ public class CustomerTest {
                     case "4" -> updateCustomer();
                     case "5" -> removeCustomer();
                     case "6" -> printCustomerAge();
+                    case "7" -> findCustomerByName();
                 }
             } catch(CustomerTypeNotFoundException customerTypeNotFoundException) {
                 System.out.println(customerTypeNotFoundException.getMessage());
@@ -52,9 +58,10 @@ public class CustomerTest {
             System.out.println("4 - Update customer");
             System.out.println("5 - Remove customer");
             System.out.println("6 - Print customer age");
-            System.out.println("7 - Exit");
+            System.out.println("7 - Find customer by name");
+            System.out.println("8 - Exit");
 
-            choice = KeyboardInput.readInputAsString("Select an option (1, 2, 3, 4, 5, 6 or 7)...: ");
+            choice = KeyboardInput.readInputAsString("Select an option (1, 2, 3, 4, 5, 6, 7 or 8)...: ");
 
         } while (!choice.equals("1") &&
                 !choice.equals("2") &&
@@ -62,7 +69,8 @@ public class CustomerTest {
                 !choice.equals("4") &&
                 !choice.equals("5") &&
                 !choice.equals("6") &&
-                !choice.equals("7"));
+                !choice.equals("7") &&
+                !choice.equals("8"));
 
         return choice;
     }
@@ -263,6 +271,26 @@ public class CustomerTest {
         int age = customerController.calculateAge(customer.getBirthDate());
         System.out.println("Customer " + customer.getFirstName() + " " + customer.getLastName() +
                 " is " + age + " years old.");
+    }
+
+    public static List<Customer> findCustomerByName() {
+        // 1 - read customer name
+        String customerFirstName = KeyboardInput.readInputAsString("Enter customer first name...: ");
+        String customerLastName = KeyboardInput.readInputAsString("Enter customer last name...: ");
+
+        // 2 - Delegates to the controller (System operation)
+        List<Customer> customers = null;
+        try {
+            customers = customerController.findCustomer(customerFirstName, customerLastName);
+            // 3 - Returns the customer
+            for (Customer customer:customers) {
+                System.out.println("Customer details..:  " + customer);
+            }
+        } catch (CustomerNotFoundException e) {
+            System.out.println(e.getMessage());;
+        }
+
+        return customers;
     }
 
 }

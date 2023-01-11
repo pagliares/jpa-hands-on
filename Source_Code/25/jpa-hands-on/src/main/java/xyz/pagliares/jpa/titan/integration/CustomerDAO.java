@@ -76,4 +76,13 @@ public class CustomerDAO extends DAO {
     public static int calculateAge(LocalDate dateOfBirth) {
         return Period.between(dateOfBirth, LocalDate.now()).getYears();
     }
+
+    public List<Customer> findByName(String firstName, String lastName) {
+        String queryString = "SELECT c FROM Customer c WHERE c.firstName = :firstName AND c.lastName = :lastName";
+
+        Query query = this.getEntityManager().createQuery("SELECT c FROM Customer c WHERE c.firstName=:firstName AND c.lastName=:lastName");
+        query.setParameter("firstName", firstName);
+        query.setParameter("lastName", lastName);
+        return query.getResultList();
+    }
 }
