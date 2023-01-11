@@ -526,3 +526,46 @@ public class Employee extends Customer {
 - One huge disadvantage is that all columns of subclass properties must be nullable.
 - If you need or want to have NOT-NULL constraints defined on these columns, you cannot.
 - Also, because subclass property columns may be unused, the single table strategy is not normalized.
+
+### 22 - jpa-inheritance
+
+-  This example illustrates how to use the strategy table-per-class to map the concept of inheritance of object orientation to a relational model.
+ 
+<pre>
+@Entity
+<strong>@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)</strong>
+public class Person {
+   ...
+   ...
+}
+
+@Entity
+public class Customer extends Person {
+ ...
+ ...
+}
+
+@Entity
+public class Employee extends Customer{
+  ...
+  ...
+}
+</pre>
+
+- The following 3 images illustrate the corresponding relational model for the strategy one-table-per class when mapping the inheritance hierachy used in the example for the classes <strong>Person</strong>, <strong>Customer</strong>, and <strong>Employee</strong>, respectively.
+
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Table_Per_Class_Person.png" width=264 height=57 alt="UML class diagram"></p>
+
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Table_Per_Class_Customer.png" width=657 height=52 alt="UML class diagram"></p>
+
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Table_Per_Class_Employee.png" width=763 height=52 alt="UML class diagram"></p>
+
+<strong>Advantages of table per class mapping:</strong>
+- The advantage of this approach over the SINGLE_TABLE strategy is that you can define constraints on subclass properties
+- Another advantage is that it might be easier to map a legacy, preexisting schema using this strategy.
+  
+<strong>Disadvantages of table per class mapping:</strong>
+- The strategy is not normalized and it has redundant columns in each of its tables for each of the base class's properties
+- Not as fast as the SINGLE_TABLE strategy
+- It is probably not wise to pick this strategy when developing your entity beans, unless you absolutely have to.
+
