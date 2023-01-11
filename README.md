@@ -685,3 +685,19 @@ public class <strong>QueryAPITest</strong> {
     }
 }
 </pre>
+
+- In the following example, we demonstrate the use of parameters in a Query string.
+<pre>
+public class CustomerDAO {
+   ...
+   public List<Customer> findByName(String firstName, String lastName) {
+        String queryString = "SELECT c FROM Customer c WHERE c.firstName = <strong>:firstName</strong> AND c.lastName = <strong>:lastName</strong>";
+        <strong>Query query = this.getEntityManager().createQuery(queryString);
+        query.setParameter("firstName", firstName);
+        query.setParameter("lastName", lastName);</strong>
+        return query.getResultList();
+   }
+}
+</pre>
+
+- <strong>Note</strong>: It is also possible to use positional parameters (1, 2, ..) over named parameters (discussed in this example), but this is not recommended.
