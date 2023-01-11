@@ -613,3 +613,32 @@ public class Employee extends Customer{
   
 <strong>Disadvantages of TABLE_PER_SUBCLASS mapping:</strong>
 - It does not perform so well as the SINGLE_TABLE strategy.
+
+
+### 24 - jpa-inheritance
+
+- This example illustrates how to inherit from a non entity class (a class not annotated with @Entity) by the use of the @MappedSuperclass annotation.
+- This superclass may be an existing class in your domain model that you do not want to make an entity.
+ 
+<pre>
+<strong>@MappedSuperclass</strong>
+public class Person {
+   ...
+   ...
+}
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@AttributeOverride(name="lastName", column = @Column(name="SURNAME")) 
+public class Customer extends Person {
+ ...
+ ...
+}
+
+@Entity
+@PrimaryKeyJoinColumn(name="EMPLOYEE_PK")
+public class Employee extends Customer{
+  ...
+  ...
+}
+</pre>
