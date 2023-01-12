@@ -1,5 +1,6 @@
 package xyz.pagliares.jpa.titan.controller;
 
+import jakarta.persistence.Query;
 import xyz.pagliares.jpa.titan.entity.Customer;
 import xyz.pagliares.jpa.titan.entity.exception.CustomerNotFoundException;
 import xyz.pagliares.jpa.titan.integration.CustomerDAO;
@@ -29,6 +30,11 @@ public class CustomerController {
     public List<Customer> listAllCustomers() throws CustomerNotFoundException {
         return customerDAO.listAllCustomers();
     }
+
+    public List<Customer> getCustomers(int max, int index) {
+        return customerDAO.getCustomers(max, index);
+    }
+
     public void removeCustomer(Long id) throws CustomerNotFoundException{
         customerDAO.removeCustomer(id);
     }

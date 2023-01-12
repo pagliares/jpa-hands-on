@@ -4,6 +4,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import xyz.pagliares.jpa.titan.entity.Customer;
 import xyz.pagliares.jpa.titan.entity.exception.CustomerNotFoundException;
+import xyz.pagliares.jpa.titan.utility.DatabaseUtility;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
@@ -91,6 +93,13 @@ public class CustomerDAO extends DAO {
         query.setParameter("birthDate", birthDate);
         if (query.getResultList().size() == 0)
                 throw new CustomerNotFoundException("No customer born on " + birthDate);
+        return query.getResultList();
+    }
+
+    public List<Customer> getCustomers(int max, int index) {
+        Query query = this.getEntityManager().createQuery("SELECT c FROM Customer c");
+        query.setMaxResults(max);
+        query.setFirstResult(index);
         return query.getResultList();
     }
 }
