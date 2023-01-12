@@ -717,4 +717,47 @@ public class CustomerDAO extends DAO {
     }
    ... 
 }
+</pre>
 
+
+- The example also demonstrate how to page the results by limiting the number of result of a Query:
+
+<pre>
+public class CustomerDAO extends DAO {
+   ...
+  public List<Customer> getCustomers(int max, int index) {
+        Query query = this.getEntityManager().createQuery("SELECT c FROM Customer c");
+        <strong>query.setMaxResults(max);
+        query.setFirstResult(index);</strong>
+        return query.getResultList();
+    }
+   ... 
+}
+</pre>
+
+
+- The example also demonstrate a strategy that aims to improve performance of queries that returns, for instance, milions of objects.  
+
+<pre>
+public class <strong>CustomerPaginationTest</strong> {
+   ...
+ System.out.println("""
+                            
+                            List all customers, in small steps aiming performance improvement
+        """);
+        List results;
+        int first = 0;
+        <strong>int max =3;</strong>
+        do {
+            results = <strong>customerDAO.getCustomers(max, first)</strong>;
+            Iterator<Customer> it = results.iterator();
+            while(it.hasNext()){
+                System.out.println(it.next());
+            }
+            <strong>customerDAO.getEntityManager().clear();</strong>
+            System.out.println("---------------------");
+            first = first + results.size();
+        } while (results.size() > 0);
+   ... 
+}
+</pre>
