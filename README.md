@@ -701,3 +701,20 @@ public class CustomerDAO {
 </pre>
 
 - <strong>Note</strong>: It is also possible to use positional parameters (1, 2, ..) over named parameters (discussed in this example), but this is not recommended.
+
+- The example also demonstrate how to use Query named parameters of type LocalDate. This is done by the implementation of findByCustomerByBirthDate feature:
+
+<pre>
+public class CustomerDAO extends DAO {
+   ...
+   public List<Customer> findCustomerByBirthDate(LocalDate birthDate) throws CustomerNotFoundException {
+        String queryString = "SELECT c FROM Customer c WHERE <strong>c.birthDate = :birthDate"</strong>;
+        Query query = this.getEntityManager().createQuery(queryString);
+        <strong>query.setParameter("birthDate", birthDate);</strong>
+        if (query.getResultList().size() == 0)
+                throw new CustomerNotFoundException("No customer born on " + birthDate);
+        return <strong>query.getResultList()</strong>;
+    }
+   ... 
+}
+
