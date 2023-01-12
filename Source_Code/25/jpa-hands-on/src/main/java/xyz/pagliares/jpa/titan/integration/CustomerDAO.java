@@ -84,4 +84,13 @@ public class CustomerDAO extends DAO {
         query.setParameter("lastName", lastName);
         return query.getResultList();
     }
+
+    public List<Customer> findCustomerByBirthDate(LocalDate birthDate) throws CustomerNotFoundException {
+        String queryString = "SELECT c FROM Customer c WHERE c.birthDate = :birthDate";
+        Query query = this.getEntityManager().createQuery(queryString);
+        query.setParameter("birthDate", birthDate);
+        if (query.getResultList().size() == 0)
+                throw new CustomerNotFoundException("No customer born on " + birthDate);
+        return query.getResultList();
+    }
 }

@@ -27,7 +27,7 @@ public class CustomerTest {
 
         String choice = showMenu();
 
-        while (!choice.equals("8")) {
+        while (!choice.equals("9")) {
             try {
                 switch (choice) {
                     case "1" -> createCustomer();
@@ -37,6 +37,8 @@ public class CustomerTest {
                     case "5" -> removeCustomer();
                     case "6" -> printCustomerAge();
                     case "7" -> findCustomerByName();
+                    case "8" -> findCustomerByBirthDate();
+
                 }
             } catch(CustomerTypeNotFoundException customerTypeNotFoundException) {
                 System.out.println(customerTypeNotFoundException.getMessage());
@@ -59,9 +61,10 @@ public class CustomerTest {
             System.out.println("5 - Remove customer");
             System.out.println("6 - Print customer age");
             System.out.println("7 - Find customer by name");
-            System.out.println("8 - Exit");
+            System.out.println("8 - Find customer by birth date");
+            System.out.println("9 - Exit");
 
-            choice = KeyboardInput.readInputAsString("Select an option (1, 2, 3, 4, 5, 6, 7 or 8)...: ");
+            choice = KeyboardInput.readInputAsString("Select an option (1..9)...: ");
 
         } while (!choice.equals("1") &&
                 !choice.equals("2") &&
@@ -70,7 +73,8 @@ public class CustomerTest {
                 !choice.equals("5") &&
                 !choice.equals("6") &&
                 !choice.equals("7") &&
-                !choice.equals("8"));
+                !choice.equals("8") &&
+                !choice.equals("9"));
 
         return choice;
     }
@@ -290,6 +294,30 @@ public class CustomerTest {
             System.out.println(e.getMessage());;
         }
 
+        return customers;
+    }
+
+    public static List<Customer> findCustomerByBirthDate() {
+        // 1 - read customer name
+
+        LocalDate customerBirthDate = null;
+        try {
+            customerBirthDate = KeyboardInput.readStringInputAsJavaLocalDate("Enter customer birthdate (e.g. 07/05/1977) ");
+
+        } catch (DateTimeParseException dateTimeParseException) {
+            System.out.println(dateTimeParseException.getMessage());
+        }
+
+        // 2 - Delegate to the controller (System operation)
+        List<Customer> customers = null;
+        try {
+            customers = customerController.findCustomerByBirthDate(customerBirthDate);
+            for (Customer customer:customers) {
+                System.out.println("Customer details..:  " + customer);
+            }
+        } catch (CustomerNotFoundException e) {
+            System.out.println(e.getMessage());;
+        }
         return customers;
     }
 

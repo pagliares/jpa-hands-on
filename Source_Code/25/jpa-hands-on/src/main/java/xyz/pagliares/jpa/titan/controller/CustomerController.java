@@ -56,4 +56,8 @@ public class CustomerController {
     public static int calculateAge(LocalDate dateOfBirth) {
         return Period.between(dateOfBirth, LocalDate.now()).getYears();
     }
+
+    public List<Customer> findCustomerByBirthDate(LocalDate today) throws CustomerNotFoundException {
+         return customerDAO.findCustomerByBirthDate(today);
+    }
 }
