@@ -22,7 +22,7 @@ Repository with examples of the Object Relational Mapping - ORM - framework know
 
 ## Jakarta Persistence API (Important)
 
-<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
 
 Starting in Java EE 8, Java EE has changed its name to Jakarta EE. In addition to changing the platform name, several packages were migrate to a new package hierarchy that starts with jakarta. That's the reason all source code in this repository are using the new package names to import JPA related classes. In other words, we use
 
@@ -40,7 +40,7 @@ Instead of the old package names:
             //import javax.persistence.Id;
 
 ## MySQL
-<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
 
 ### MySQL database used in this course:
    - jpa_hands_on
@@ -77,7 +77,7 @@ There are several JPA implementations out there. This hands-on uses EclipseLinkJ
  
 ## Examples discussed in this hands-on
 
-<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
 
 This hands-on uses the examples provided in the book Enterprise JavaBeans 3.0, 5th edition, by Bill Burke and Richard Monson-Haefel. The examples are about a fictitious cruise company.
 
@@ -93,7 +93,7 @@ The examples in this repository cover a relatively simple part of the Titan syst
 
 ### 01 - A minimum JPA example in Java SE
 
-<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
 <strong>Project source</strong>: Source_Code/O1/jpa-hands-on
 
 <strong> Introduction </strong>
@@ -117,7 +117,7 @@ This hands-on uses MySQL and hence, all examples in this repository use <strong>
 
 ### 02 - Persisting and finding entities by ID
 
-<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
 <strong>Project source</strong>: Source_Code/O2/jpa-hands-on
 
 <strong> Introduction </strong>
@@ -130,7 +130,7 @@ This hands-on uses MySQL and hence, all examples in this repository use <strong>
 
 ### 03 - Updating entities and annotating properties and methods
 
-<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
 <strong>Project source</strong>: Source_Code/O3/jpa-hands-on
 
 <strong> Introduction </strong>
@@ -142,7 +142,7 @@ This hands-on uses MySQL and hence, all examples in this repository use <strong>
 
 ### 04 - Changing the default mapping for table and column names in a database 
 
-<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
 <strong>Project source</strong>: Source_Code/O4/jpa-hands-on
 
 <strong> Introduction </strong>
@@ -154,7 +154,7 @@ This hands-on uses MySQL and hence, all examples in this repository use <strong>
 
 ### 05 - Changing the default mapping for table and column names in a database
 
-<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
 <strong>Project source</strong>: Source_Code/O5/jpa-hands-on
 
 <strong> Introduction </strong>
@@ -179,7 +179,7 @@ public class Customer implements Serializable {
 
 ### 06 - Non-persistent properties(@Transient)
 
-<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
 <strong>Project source</strong>: Source_Code/O5/jpa-hands-on
 
 <strong> Introduction </strong>
@@ -203,7 +203,7 @@ public class Customer implements Serializable {
 
 ### 07 - Mapping Date/Time before Java-SE 8
 
-<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
 <strong>Project source</strong>: Source_Code/O5/jpa-hands-on
 
 <strong> Introduction </strong>
