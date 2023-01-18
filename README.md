@@ -2,7 +2,21 @@
 
 Repository with examples of the Object Relational Mapping - ORM - framework known as Jakarta Persistence API - JPA. The examples are used in the classes about database persistence taught by Rodrigo Martins Pagliares at UNIFAL-MG (Computer Science Undergraduate course).
 
+## Outline
+
+### Part I - First steps with JPA
+<a href="https://github.com/pagliares/jpa-hands-on#jakarta-persistence-api-important">Jakarta Persistence API (Important)</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#mysql">MySQL</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#examples-discussed-in-this-hands-on">Examples discussed in this hands-on</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#examples-discussed-in-this-hands-on">01 - A minimum JPA example in Java SE</a><br>
+
+
+
+
+
 ## Jakarta Persistence API (Important)
+
+<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
 
 Starting in Java EE 8, Java EE has changed its name to Jakarta EE. In addition to changing the platform name, several packages were migrate to a new package hierarchy that starts with jakarta. That's the reason all source code in this repository are using the new package names to import JPA related classes. In other words, we use
 
@@ -20,6 +34,7 @@ Instead of the old package names:
             //import javax.persistence.Id;
 
 ## MySQL
+<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
 
 ### MySQL database used in this course:
    - jpa_hands_on
@@ -56,6 +71,8 @@ There are several JPA implementations out there. This hands-on uses EclipseLinkJ
  
 ## Examples discussed in this hands-on
 
+<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+
 This hands-on uses the examples provided in the book Enterprise JavaBeans 3.0, 5th edition, by Bill Burke and Richard Monson-Haefel. The examples are about a fictitious cruise company.
 
 <p align="center"><a href="https://amzn.to/3B9mffs" target="_blank"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Book_Cover.jpeg" widht=228 height=300 alt="EJB 3.1 book cover"></a></p>
@@ -68,12 +85,17 @@ This type of business is a good candidate for a distributed object system becaus
 
 The examples in this repository cover a relatively simple part of the Titan system that focuses on the process of making a reservation for a ship. These examples will give you the opportunity to develop Ship, Cabin, TravelAgent, ProcessPayment and other entity beans. In this process you will need to create relational database tables to persist the data used in the examples. We assume that you are already familiar with relational database management systems and that you are able to create tables according to the provided SQL statements.
 
-### 01 - jpa-hands-on
-   - This is a minimum JPA example in Java SE that communicates with a MySQL database.
-   - It creates a CUSTOMER table in the jpa_hands_on database.
-   - It populates the CUSTOMER table with one customer (Florentino Ariza)
-   - It demonstrates how to use the EclipseLink JPA implementation.
-   - It demonstrates how to generate autoincremented primary keys with MySQL.
+### 01 - A minimum JPA example in Java SE
+
+<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/O1/jpa-hands-on
+
+<strong> Introduction </strong>
+- This is a minimum JPA example in Java SE that communicates with a MySQL database.
+- It creates a CUSTOMER table in the jpa_hands_on database.
+- It populates the CUSTOMER table with one customer (Florentino Ariza)
+- It demonstrates how to use the EclipseLink JPA implementation.
+- It demonstrates how to generate autoincremented primary keys with MySQL.
 
 <strong>Imporant Note:</strong>
 
