@@ -4,14 +4,20 @@ Repository with examples of the Object Relational Mapping - ORM - framework know
 
 ## Outline
 
-### Part I - First steps with JPA
+### Part I - Intoduction to this hands-on
 <a href="https://github.com/pagliares/jpa-hands-on#jakarta-persistence-api-important">Jakarta Persistence API (Important)</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#mysql">MySQL</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#examples-discussed-in-this-hands-on">Examples discussed in this hands-on</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#examples-discussed-in-this-hands-on">01 - A minimum JPA example in Java SE</a><br>
 
+### Part II - First steps with JPA
 
-
+<a href="https://github.com/pagliares/jpa-hands-on#01---a-minimum-jpa-example-in-java-se">01 - A minimum JPA example in Java SE</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#02---jpa-hands-on">02 - Persisting and finding entities by ID</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#03---jpa-hands-on">03 - Updating entities and annotating properties and methods</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#04---jpa-hands-on">04 - Removing an entity</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#05---jpa-hands-on">05 - Changing the default mapping for table and column names in a database</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#06---jpa-hands-on">06 - Non-persistent properties(@Transient)</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#07---jpa-hands-on">07 - Mapping Date/Time before Java-SE 8</a><br>
 
 
 ## Jakarta Persistence API (Important)
@@ -109,31 +115,51 @@ In addition to automatically generated primary keys, there is the possibility of
 
 This hands-on uses MySQL and hence, all examples in this repository use <strong>@GeneratedValue(strategy = GenerationType.IDENTITY)</strong>.
 
-### 02 - jpa-hands-on 
-   - This example builds on the first example by adding a Cabin entity bean
-   - The example also creates two controllers: CustomerController and CabinController
-   - The controllers encapsulates the logic to persist and find by id customers and cabins.
-   - The example demonstrates how to persist and find by id a customer and a cabin stored in the database.
+### 02 - Persisting and finding entities by ID
+
+<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/O2/jpa-hands-on
+
+<strong> Introduction </strong>
+- This example builds on the first example by adding a Cabin entity bean
+- The example also creates two controllers: CustomerController and CabinController
+- The controllers encapsulates the logic to persist and find by id customers and cabins.
+- The example demonstrates how to persist and find by id a customer and a cabin stored in the database.
 
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_02.png" widht=820 height=493 alt="UML class diagram"></a></p>
 
-### 03 - jpa-hands-on
-   - This example builds on the previous example by adding a some update methods to the CabinController class
-   - The example also illustrates that we can annotate entity beans in two ways: properties annotations and method annotations
-   - The example demonstrates some database transactions in order to persist and update some cabin beans on the database.
+### 03 - Updating entities and annotating properties and methods
+
+<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/O3/jpa-hands-on
+
+<strong> Introduction </strong>
+- This example builds on the previous example by adding a some update methods to the CabinController class
+- The example also illustrates that we can annotate entity beans in two ways: properties annotations and method annotations
+- The example demonstrates some database transactions in order to persist and update some cabin beans on the database.
 
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_03.png" widht=358 height=390 alt="UML class diagram"></a></p>
 
-### 04 - jpa-hands-on 
-   - This example builds on the previous example by adding a method in the CabinController class to remove a cabin
-   - The example also refactors the main class extracting methods to create a cabin and a customer
-   - The example refactors the entity beans Cabin and Customer to implement the interface java.io.Serializable
+### 04 - Changing the default mapping for table and column names in a database 
+
+<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/O4/jpa-hands-on
+
+<strong> Introduction </strong>
+- This example builds on the previous example by adding a method in the CabinController class to remove a cabin
+- The example also refactors the main class extracting methods to create a cabin and a customer
+- The example refactors the entity beans Cabin and Customer to implement the interface java.io.Serializable
 
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_04.png" widht=875 height=185 alt="UML class diagram"></a></p>
 
-### 05 - jpa-hands-on
-   - This example builds on the previous example by demonstrating how we can change the default mapping for table and column names in a database.  
-   - Sometimes this is necessary (when, for example, the Database Administrator is enforcing some conventions on columns and table names that the OO developer doesn't want to follow in the entity beans. 
+### 05 - Changing the default mapping for table and column names in a database
+
+<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/O5/jpa-hands-on
+
+<strong> Introduction </strong>
+- This example builds on the previous example by demonstrating how we can change the default mapping for table and column names in a database.  
+- Sometimes this is necessary (when, for example, the Database Administrator is enforcing some conventions on columns and table names that the OO developer doesn't want to follow in the entity beans. 
 
 <pre>
 @Entity
@@ -151,9 +177,15 @@ public class Customer implements Serializable {
 }
 </pre>
 
-### 06 - jpa-hands-on
-   - This example builds on the previous example by demonstrating that we can indicate that a property must not be persisted in the database by using the JPA annotation @Transient.
-   - The example also illustrates that a numerical primary key is auto incremented, generating a new value even when we remove an entity from the database. 
+### 06 - Non-persistent properties(@Transient)
+
+<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/O5/jpa-hands-on
+
+<strong> Introduction </strong>
+
+- This example builds on the previous example by demonstrating that we can indicate that a property must not be persisted in the database by using the JPA annotation @Transient.
+- The example also illustrates that a numerical primary key is auto incremented, generating a new value even when we remove an entity from the database. 
 
 <pre>
 @Entity
@@ -169,11 +201,17 @@ public class Customer implements Serializable {
 </pre>
 
 
-### 07 - jpa-hands-on
-   - This example evolves the previous example by adding a keyboard utility class and aims to produce a simple CRUD (Create, Retrieve, Updte, Delete) command-line program for a customer of the titan cruises.
-   - From the JPA perpective, the example illustrates the use of the annotation @Temporal and your constants TemporalType.TIMESTAMP and TemporalType.DATE
-   - The file persistence.xml has some additional comments wit other possible values for the value attribute or the property eclipselink.ddl-generation. Changing theses values is useful for development/testing purposes.
-   - The examples uses @Temporal that is assigned with Pre Java-SE 8 versions. Hence, i strive to only use date and time manipulation with Pre-Java SE 8 API for dates (not recommended anymore). In the next example, we will refactor this solution by Mapping date/time with JPA to the API used since Java SE 8 (Recommended).
+### 07 - Mapping Date/Time before Java-SE 8
+
+<a href="https://github.com/pagliares/jpa-hands-on/edit/main/README.md#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/O5/jpa-hands-on
+
+<strong> Introduction </strong>
+
+- This example evolves the previous example by adding a keyboard utility class and aims to produce a simple CRUD (Create, Retrieve, Updte, Delete) command-line program for a customer of the titan cruises.
+- From the JPA perpective, the example illustrates the use of the annotation @Temporal and your constants TemporalType.TIMESTAMP and TemporalType.DATE
+- The file persistence.xml has some additional comments wit other possible values for the value attribute or the property eclipselink.ddl-generation. Changing theses values is useful for development/testing purposes.
+- The examples uses @Temporal that is assigned with Pre Java-SE 8 versions. Hence, i strive to only use date and time manipulation with Pre-Java SE 8 API for dates (not recommended anymore). In the next example, we will refactor this solution by Mapping date/time with JPA to the API used since Java SE 8 (Recommended).
    
 <pre>
 @Entity
@@ -191,7 +229,7 @@ public class Customer implements Serializable {
 }
 </pre>
    
-   - Notice that the controller is getting bigger, with several new methods. This may indicate that it is losing cohesion. In next examples we will deal with this design problem by extracting from the controller the responsibilities to database integration.
+- Notice that the controller is getting bigger, with several new methods. This may indicate that it is losing cohesion. In next examples we will deal with this design problem by extracting from the controller the responsibilities to database integration.
 
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_07.png" widht=886 height=431 alt="UML class diagram"></a></p>
    
