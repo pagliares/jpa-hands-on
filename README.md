@@ -29,7 +29,22 @@ Repository with examples of the Object Relational Mapping - ORM - framework know
 <a href="https://github.com/pagliares/jpa-hands-on#13---mapping-a-bidirectional-one-to-one-relationship">13 - Mapping a bidirectional one-to-one relationship</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#14---mapping-a-unidirectional-one-to-many-relationship">14 - Mapping a unidirectional one-to-many relationship</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#15---mapping-a-unidirectional-one-to-many-relationship-with-a-join-table">15 - Mapping a unidirectional one-to-many relationship with a join table</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#16---jpa-hands-on">16 - Mapping a unidirectional many-to-one relationship</a><br>
+<a href="">16 - Mapping a unidirectional many-to-one relationship</a><br>
+<a href="">17 - Refactoring the code to eliminate code duplicate and generalize some methods</a><br>
+<a href="">18 - Mapping a bidirectional one-to-many relationship</a><br>
+<a href="">19 - Mapping a bidirectional many-to-many relationship</a><br>
+<a href="">20 - Mapping a unidirectional many-to-many relationship</a><br>
+
+### Part IV - Mapping an inheritance hiearchy
+
+<a href="">21 - Mapping inheritance - the strategy single-table</a><br>
+<a href="">22 - Mapping inheritance - the strategy table per class</a><br>
+<a href="">23 - Mapping inheritance - the strategy table per subclass</a><br>
+<a href="">24 - Inheritance from a non-entity class with @MappedSuperclass </a><br>
+
+### Part V - Queries and JPQL
+
+<a href="">25 - Introduction to the Query interface </a><br>
 
 ## Jakarta Persistence API (Important)
 
