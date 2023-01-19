@@ -46,7 +46,7 @@ Repository with examples of the Object Relational Mapping - ORM - framework know
 
 <a href="https://github.com/pagliares/jpa-hands-on#25---introduction-to-the-query-interface">25 - Introduction to the Query interface</a><br>
 
-## Jakarta Persistence API (Important)
+## Migrating to Jakarta Persistence API (Important)
 
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
 
@@ -57,7 +57,6 @@ Starting in Java EE 8, Java EE has changed its name to Jakarta EE. In addition t
             import jakarta.persistence.GenerationType;
             import jakarta.persistence.Id;
 
-
 Instead of the old package names:
 
             //import javax.persistence.Entity;
@@ -65,7 +64,7 @@ Instead of the old package names:
             //import javax.persistence.GenerationType;
             //import javax.persistence.Id;
 
-## MySQL
+## MySQL, the MySQL Connector/J JDBC driver, and the EclipseLink JPA implementation
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
 
 ### MySQL database used in this course:
