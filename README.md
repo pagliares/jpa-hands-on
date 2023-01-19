@@ -30,21 +30,21 @@ Repository with examples of the Object Relational Mapping - ORM - framework know
 <a href="https://github.com/pagliares/jpa-hands-on#14---mapping-a-unidirectional-one-to-many-relationship">14 - Mapping a unidirectional one-to-many relationship</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#15---mapping-a-unidirectional-one-to-many-relationship-with-a-join-table">15 - Mapping a unidirectional one-to-many relationship with a join table</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#16---mapping-a-unidirectional-many-to-one-relationship">16 - Mapping a unidirectional many-to-one relationship</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#17---jpa-hands-on">17 - Refactoring the code to eliminate code duplicate and generalize some methods</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#18---jpa-hands-on">18 - Mapping a bidirectional one-to-many relationship</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#19---jpa-hands-on">19 - Mapping a bidirectional many-to-many relationship</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#20---jpa-hands-on">20 - Mapping a unidirectional many-to-many relationship</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#17---refactoring-the-code-to-eliminate-code-duplicate-and-generalize-some-methods">17 - Refactoring the code to eliminate code duplicate and generalize some methods</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#18---mapping-a-bidirectional-one-to-many-relationship">18 - Mapping a bidirectional one-to-many relationship</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#19---mapping-a-bidirectional-many-to-many-relationship">19 - Mapping a bidirectional many-to-many relationship</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#20---mapping-a-unidirectional-many-to-many-relationship">20 - Mapping a unidirectional many-to-many relationship</a><br>
 
 ### Part IV - Mapping an inheritance hiearchy
 
-<a href="https://github.com/pagliares/jpa-hands-on#21---jpa-inheritance">21 - Mapping inheritance - the strategy single-table</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#22---jpa-inheritance">22 - Mapping inheritance - the strategy table per class</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#23---jpa-inheritance">23 - Mapping inheritance - the strategy table per subclass</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#24---jpa-inheritance">24 - Inheritance from a non-entity class with @MappedSuperclass</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#21---mapping-inheritance---the-strategy-single-table">21 - Mapping inheritance - the strategy single-table</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#22---mapping-inheritance---the-strategy-table-per-class">22 - Mapping inheritance - the strategy table per class</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#23---mapping-inheritance---the-strategy-table-per-subclass">23 - Mapping inheritance - the strategy table per subclass</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#24---inheritance-from-a-non-entity-class-with-mappedsuperclass">24 - Inheritance from a non-entity class with @MappedSuperclass</a><br>
 
 ### Part V - Queries and JPQL
 
-<a href="https://github.com/pagliares/jpa-hands-on#25---queries-and-ejb-ql">25 - Introduction to the Query interface</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#25---introduction-to-the-query-interface">25 - Introduction to the Query interface</a><br>
 
 ## Jakarta Persistence API (Important)
 
