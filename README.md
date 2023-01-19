@@ -12,15 +12,15 @@ Repository with examples of the Object Relational Mapping - ORM - framework know
 ### Part II - First steps with JPA
 
 <a href="https://github.com/pagliares/jpa-hands-on#01---a-minimum-jpa-example-in-java-se">01 - A minimum JPA example in Java SE</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#02---jpa-hands-on">02 - Persisting and finding entities by ID</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#03---jpa-hands-on">03 - Updating entities and annotating properties and methods</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#04---jpa-hands-on">04 - Removing an entity</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#05---jpa-hands-on">05 - Changing the default mapping for table and column names in a database</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#06---jpa-hands-on">06 - Non-persistent properties(@Transient)</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#07---jpa-hands-on">07 - Mapping Date/Time before Java-SE 8</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#08---jpa-hands-on">08 - Mapping Date/Time after Java-SE 8</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#09---jpa-hands-on">09 - Mapping Java Enums</a><br>
-<a href="hhttps://github.com/pagliares/jpa-hands-on#10---jpa-hands-on">10 - Refactoring the code to decouple a DAO hiearchy from the controllers</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#02---persisting-and-finding-entities-by-id">02 - Persisting and finding entities by ID</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#03---updating-entities-and-annotating-properties-and-methods">03 - Updating entities and annotating properties and methods</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#04---changing-the-default-mapping-for-table-and-column-names-in-a-database">04 - Removing an entity</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#05---changing-the-default-mapping-for-table-and-column-names-in-a-database">05 - Changing the default mapping for table and column names in a database</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#06---non-persistent-propertiestransient">06 - Non-persistent properties(@Transient)</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#07---mapping-datetime-before-java-se-8">07 - Mapping Date/Time before Java-SE 8</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#08---mapping-datetime-after-java-se-8">08 - Mapping Date/Time after Java-SE 8</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#09---mapping-java-enums">09 - Mapping Java Enums</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#10---refactoring-the-code-to-decouple-a-dao-hiearchy-from-the-controllers">10 - Refactoring the code to decouple a DAO hiearchy from the controllers</a><br>
 
 
 ## Jakarta Persistence API (Important)
