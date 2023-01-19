@@ -14,7 +14,7 @@ Repository with examples of the Object Relational Mapping - ORM - framework know
 <a href="https://github.com/pagliares/jpa-hands-on#01---a-minimum-jpa-example-in-java-se">01 - A minimum JPA example in Java SE</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#02---persisting-and-finding-entities-by-id">02 - Persisting and finding entities by ID</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#03---updating-entities-and-annotating-properties-and-methods">03 - Updating entities and annotating properties and methods</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#04---changing-the-default-mapping-for-table-and-column-names-in-a-database">04 - Removing an entity</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#04---removing-an-entity">04 - Removing an entity</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#05---changing-the-default-mapping-for-table-and-column-names-in-a-database">05 - Changing the default mapping for table and column names in a database</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#06---non-persistent-propertiestransient">06 - Non-persistent properties(@Transient)</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#07---mapping-datetime-before-java-se-8">07 - Mapping Date/Time before Java-SE 8</a><br>
@@ -40,11 +40,11 @@ Repository with examples of the Object Relational Mapping - ORM - framework know
 <a href="https://github.com/pagliares/jpa-hands-on#21---jpa-inheritance">21 - Mapping inheritance - the strategy single-table</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#22---jpa-inheritance">22 - Mapping inheritance - the strategy table per class</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#23---jpa-inheritance">23 - Mapping inheritance - the strategy table per subclass</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#24---jpa-inheritance">24 - Inheritance from a non-entity class with @MappedSuperclass </a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#24---jpa-inheritance">24 - Inheritance from a non-entity class with @MappedSuperclass</a><br>
 
 ### Part V - Queries and JPQL
 
-<a href="https://github.com/pagliares/jpa-hands-on#25---queries-and-ejb-ql">25 - Introduction to the Query interface </a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#25---queries-and-ejb-ql">25 - Introduction to the Query interface</a><br>
 
 ## Jakarta Persistence API (Important)
 
@@ -495,18 +495,30 @@ public class Cruise implements Serializable {
 - The example also includes support to populate the database tables SHIP and CRUISE at startup
 - The example includes the classes CruiseTest and CabinTest (along with the controllers, DAOs and Exceptions for Cruise and Ship) in order to  read ship and cruise information from the keyboard.
  
-### 17 - jpa-hands-on
-   -  This example DOES NOT illustrate any new JPA concept. Instead, it is a refactored version of the previous example.
-   - We decided to refactor the code to eliminate duplicated code in classes CabinTest, CruiseTest, CustomerTest, ShipTest
-   - We also create a populateDatabase method on DatabaseUtility class to populate ALL database tables with fake data, instead of populating individual tables by running CabinTest, CruiseTest, CustomerTest, ShipTest.
-   - The example also refactors the DAOs classes hierarchy attempting to generalize some methods, in special persist and update methods.
-   
-### 18 - jpa-hands-on
-   -  This example illustrates the use of <strong>BIDIRECTIONAL ONE-TO-MANY RELATIONSHIP</strong> between Cruise and Reservation. 
-   
-   <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_18.png" width=567 height=252 alt="UML class diagram"></a></p>
+### 17 - Refactoring the code to eliminate code duplicate and generalize some methods
 
-   - In that sense, we create a Reservation entity class and associtated in a bidirectional way with the Ship entity class.
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+
+<strong> Introduction </strong>
+
+-  This example DOES NOT illustrate any new JPA concept. Instead, it is a refactored version of the previous example.
+- We decided to refactor the code to eliminate duplicated code in classes CabinTest, CruiseTest, CustomerTest, ShipTest
+- We also create a populateDatabase method on DatabaseUtility class to populate ALL database tables with fake data, instead of populating individual tables by running CabinTest, CruiseTest, CustomerTest, ShipTest.
+- The example also refactors the DAOs classes hierarchy attempting to generalize some methods, in special persist and update methods.
+   
+### 18 - Mapping a bidirectional one-to-many relationship
+
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+
+<strong> Introduction </strong>
+
+- This example illustrates the use of <strong>BIDIRECTIONAL ONE-TO-MANY RELATIONSHIP</strong> between Cruise and Reservation. 
+   
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_18.png" width=567 height=252 alt="UML class diagram"></a></p>
+
+- In that sense, we create a Reservation entity class and associtated in a bidirectional way with the Ship entity class.
  
 <pre>
 @Entity
@@ -535,16 +547,22 @@ public class Reservation implements Serializable {
 }
 </pre>
 
-   - Remember to <strong>ALWAYS</strong> wire both sides of a bidirectional relationship in your Java code.
-   - If a customer wants to book a different cruise, he needs to delete the old reservation and create a new one. So, instead of setting Reservation.setCruise( ) to null, application code would just remove Reservation:
+- Remember to <strong>ALWAYS</strong> wire both sides of a bidirectional relationship in your Java code.
+- If a customer wants to book a different cruise, he needs to delete the old reservation and create a new one. So, instead of setting Reservation.setCruise( ) to null, application code would just remove Reservation:
    
-   <pre>entityManager.remove(reservation);</pre>
-   - Since the Reservation entity is the owning side of the relationship, the Cruise's reservation property is updated with the removal the next time it is loaded from the database.
+<pre>entityManager.remove(reservation);</pre>
+- Since the Reservation entity is the owning side of the relationship, the Cruise's reservation property is updated with the removal the next time it is loaded from the database.
    
-### 19 - jpa-hands-on
-   -  This example illustrates the use of <strong>BIDIRECTIONAL MANY-TO-MANY RELATIONSHIP</strong> between Customer and Reservation. 
+### 19 - Mapping a bidirectional many-to-many relationship
+
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+
+<strong> Introduction </strong>
+
+- This example illustrates the use of <strong>BIDIRECTIONAL MANY-TO-MANY RELATIONSHIP</strong> between Customer and Reservation. 
    
-   <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_19.png" width=567 height=252 alt="UML class diagram"></a></p>
+ <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_19.png" width=567 height=252 alt="UML class diagram"></a></p>
 
 - In Titan cruises, each Reservation entity may reference many Customers (a family can make a single reservation), and each Customer can have many Reservations.
 - In this many-to-many bidirectional relationship, the Customer keeps track of all of its reservations, and each reservation may be for many customers.
@@ -597,19 +615,30 @@ reservation.getCustomers().remove(customer);
 - Since Reservation is the owning side of the relationship, you must remove the Customer from the Reservation's customer property.
 - If you instead removed the Reservation from the Customer's reservation property, there would be no database update because the Customer entity is the inverse side of the relationship.
 
-### 20 - jpa-hands-on
-   -  This example illustrates the use of <strong>UNIDIRECTIONAL MANY-TO-MANY RELATIONSHIP</strong> between Reservation and Cabin. 
+### 20 - Mapping a unidirectional many-to-many relationship
+
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+
+<strong> Introduction </strong>
+
+- This example illustrates the use of <strong>UNIDIRECTIONAL MANY-TO-MANY RELATIONSHIP</strong> between Reservation and Cabin. 
    
-   <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_20.png" width=675 height=210 alt="UML class diagram"></a></p>
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_20.png" width=675 height=210 alt="UML class diagram"></a></p>
 
 - In Titan's reservation system, every Reservation is assigned a Cabin on the Ship. 
 - This allows the Customer to reserve a specific Cabin on the Ship.
 - Each reservation may be for more than one cabin, since each Reservation can be for more than one Customer.
    - For example, a family might make a Reservation for five people for two adjacents Cabins.
 
-### 21 - jpa-inheritance
+### 21 - Mapping inheritance - the strategy single-table
 
--  This example illustrates how to use the strategy Single-Table to map the concept of inheritance of object orientation to a relational model.
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+
+<strong> Introduction </strong>
+
+- This example illustrates how to use the strategy Single-Table to map the concept of inheritance of object orientation to a relational model.
  
 <pre>
 @Entity
@@ -662,9 +691,14 @@ public class Employee extends Customer {
 - If you need or want to have NOT-NULL constraints defined on these columns, you cannot.
 - Also, because subclass property columns may be unused, the single table strategy is not normalized.
 
-### 22 - jpa-inheritance
+### 22 - Mapping inheritance - the strategy table per class
 
--  This example illustrates how to use the strategy table-per-class to map the concept of inheritance of object orientation to a relational model.
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+
+<strong> Introduction </strong>
+
+- This example illustrates how to use the strategy table-per-class to map the concept of inheritance of object orientation to a relational model.
  
 <pre>
 @Entity
@@ -705,7 +739,12 @@ public class Employee extends Customer{
 - It is probably not wise to pick this strategy when developing your entity beans, unless you absolutely have to.
 
 
-### 23 - jpa-inheritance
+### 23 - Mapping inheritance - the strategy table per subclass
+
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+
+<strong> Introduction </strong>
 
 -  This example illustrates how to use the strategy <strong>TABLE_PER_SUBCLASS </strong> to map the concept of inheritance (object oriented model) to a relational model.
  
@@ -750,7 +789,12 @@ public class Employee extends Customer{
 - It does not perform so well as the SINGLE_TABLE strategy.
 
 
-### 24 - jpa-inheritance
+### 24 - Inheritance from a non-entity class with @MappedSuperclass
+
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+
+<strong> Introduction </strong>
 
 - This example illustrates how to inherit from a non entity class (a class not annotated with @Entity) by the use of the @MappedSuperclass annotation.
 - This superclass may be an existing class in your domain model that you do not want to make an entity.
@@ -778,9 +822,12 @@ public class Employee extends Customer{
 }
 </pre>
 
-### 25 - Queries and JPQL
+### 25 - Introduction to the Query interface
 
-<strong>Introduction to queries with JPA and JPQL</strong>
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+
+<strong>Introduction</strong>
 
 - This is the first of a sequence of examples about queries in JPA and JPQL.
 - Queries in JPA are done using both JPA Query Language and native Structured Query Language (SQL)
