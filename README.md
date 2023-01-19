@@ -29,22 +29,22 @@ Repository with examples of the Object Relational Mapping - ORM - framework know
 <a href="https://github.com/pagliares/jpa-hands-on#13---mapping-a-bidirectional-one-to-one-relationship">13 - Mapping a bidirectional one-to-one relationship</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#14---mapping-a-unidirectional-one-to-many-relationship">14 - Mapping a unidirectional one-to-many relationship</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#15---mapping-a-unidirectional-one-to-many-relationship-with-a-join-table">15 - Mapping a unidirectional one-to-many relationship with a join table</a><br>
-<a href="">16 - Mapping a unidirectional many-to-one relationship</a><br>
-<a href="">17 - Refactoring the code to eliminate code duplicate and generalize some methods</a><br>
-<a href="">18 - Mapping a bidirectional one-to-many relationship</a><br>
-<a href="">19 - Mapping a bidirectional many-to-many relationship</a><br>
-<a href="">20 - Mapping a unidirectional many-to-many relationship</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#16---mapping-a-unidirectional-many-to-one-relationship">16 - Mapping a unidirectional many-to-one relationship</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#17---jpa-hands-on">17 - Refactoring the code to eliminate code duplicate and generalize some methods</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#18---jpa-hands-on">18 - Mapping a bidirectional one-to-many relationship</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#19---jpa-hands-on">19 - Mapping a bidirectional many-to-many relationship</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#20---jpa-hands-on">20 - Mapping a unidirectional many-to-many relationship</a><br>
 
 ### Part IV - Mapping an inheritance hiearchy
 
-<a href="">21 - Mapping inheritance - the strategy single-table</a><br>
-<a href="">22 - Mapping inheritance - the strategy table per class</a><br>
-<a href="">23 - Mapping inheritance - the strategy table per subclass</a><br>
-<a href="">24 - Inheritance from a non-entity class with @MappedSuperclass </a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#21---jpa-inheritance">21 - Mapping inheritance - the strategy single-table</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#22---jpa-inheritance">22 - Mapping inheritance - the strategy table per class</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#23---jpa-inheritance">23 - Mapping inheritance - the strategy table per subclass</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#24---jpa-inheritance">24 - Inheritance from a non-entity class with @MappedSuperclass </a><br>
 
 ### Part V - Queries and JPQL
 
-<a href="">25 - Introduction to the Query interface </a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#25---queries-and-ejb-ql">25 - Introduction to the Query interface </a><br>
 
 ## Jakarta Persistence API (Important)
 
@@ -778,17 +778,17 @@ public class Employee extends Customer{
 }
 </pre>
 
-### 25 - Queries and EJB-QL
+### 25 - Queries and JPQL
 
-<strong>Introduction to queries with JPA and EJB-QL</strong>
+<strong>Introduction to queries with JPA and JPQL</strong>
 
-- This is the first of a sequence of examples about queries in JPA and EJB-QL.
-- Queries in JPA are done using both EJB Query Language and native Structured Query Language (SQL)
-- EJB-QL is a declarative query language similar to SQL, but it is tailored to work with Java objects rather than a relational schema.
-- When an EJB QL language is executed, the entity manager translates it to one (or several) SQL query.
+- This is the first of a sequence of examples about queries in JPA and JPQL.
+- Queries in JPA are done using both JPA Query Language and native Structured Query Language (SQL)
+- JPQL is a declarative query language similar to SQL, but it is tailored to work with Java objects rather than a relational schema.
+- When an JPQL language is executed, the entity manager translates it to one (or several) SQL query.
    - The generated SQL query is then executed through a JDBC driver directly in the database.
-- EJB QL is portable across vendor database implementations.
-- EJB QL and native SQL queries are executed through jakarta.persistence.Quey interface
+- JPQL is portable across vendor database implementations.
+- JPQL and native SQL queries are executed through jakarta.persistence.Quey interface
 - The Query interface is analogous to java.sql.PreparedStatement interface of JDBC.
 - In this example present an initial example with the <strong>Query Interface</strong>. 
 
