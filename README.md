@@ -18,6 +18,9 @@ Repository with examples of the Object Relational Mapping - ORM - framework know
 <a href="https://github.com/pagliares/jpa-hands-on#05---jpa-hands-on">05 - Changing the default mapping for table and column names in a database</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#06---jpa-hands-on">06 - Non-persistent properties(@Transient)</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#07---jpa-hands-on">07 - Mapping Date/Time before Java-SE 8</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#08---jpa-hands-on">08 - Mapping Date/Time after Java-SE 8</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#09---jpa-hands-on">09 - Mapping Java Enums</a><br>
+<a href="hhttps://github.com/pagliares/jpa-hands-on#10---jpa-hands-on">10 - Refactoring the code to decouple a DAO hiearchy from the controllers</a><br>
 
 
 ## Jakarta Persistence API (Important)
@@ -234,9 +237,15 @@ public class Customer implements Serializable {
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_07.png" widht=886 height=431 alt="UML class diagram"></a></p>
    
 
-### 08 - jpa-hands-on
-   - This example is almost identical to the previous version. The differences is that instead of using @Temporal(TemporalType.TIMESTAMP) that is associated with java.util. Date  (Pre Java SE8), in this example we use  LocalDateTime and LocalDate (Since Java SE 8).
-   - Since LocalDateTime and LocalDate are considered type values (@Basic) in JPA, We don't need to put any annotation to indicate this is a date/time field.anymore.
+### 08 - Mapping Date/Time after Java-SE 8
+
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/O8/jpa-hands-on
+
+<strong> Introduction </strong>
+
+- This example is almost identical to the previous version. The differences is that instead of using @Temporal(TemporalType.TIMESTAMP) that is associated with java.util.Date  (Pre Java-SE 8), in this example we use  LocalDateTime and LocalDate (Since Java-SE 8).
+- Since LocalDateTime and LocalDate are considered type values (@Basic) in JPA, We don't need to put any annotation to indicate this is a date/time field anymore.
 
 <pre>
 @Entity
@@ -251,8 +260,14 @@ public class Customer implements Serializable {
 }
 </pre>
 
-### 09 - jpa-hands-on
-   - This example demonstrates how we can persist Java Enums to the database through the use of the annotation @Enumerated
+### 09 - Mapping Java Enums
+
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/O9/jpa-hands-on
+
+<strong> Introduction </strong>
+
+- This example demonstrates how we can persist Java Enums to the database through the use of the annotation @Enumerated
    
 <pre>
 @Entity
@@ -267,21 +282,27 @@ public class Customer implements Serializable {
 }
 </pre>
 
-  - There are two possible values to the EnumType parameter of @Enumerated: EnumType.STRING or EnumType.ORDINAL. The images below demonstrate the impact of each on the table customer:
+- There are two possible values to the EnumType parameter of @Enumerated: EnumType.STRING or EnumType.ORDINAL. The images below demonstrate the impact of each on the table customer:
   
- <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Database_Table_Enum_String.png" widht=837 height=360 alt="UML class diagram"></a></p>
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Database_Table_Enum_String.png" widht=837 height=360 alt="UML class diagram"></a></p>
  
- <br>
+<br>
  
- <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Database_Table_Enum_Ordinal.png" widht=837 height=360 alt="UML class diagram"></a></p>
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Database_Table_Enum_Ordinal.png" widht=837 height=360 alt="UML class diagram"></a></p>
   
   
-  - Below, the UML Class Diagrama update with the code developed so far:
+- Below, the UML Class Diagrama update with the code developed so far:
   
-  <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_09.png" widht=894 height=392 alt="UML class diagram"></a></p>
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_09.png" widht=894 height=392 alt="UML class diagram"></a></p>
   
-### 10 - jpa-hands-on
-   - This example does not include any new feature of JPA. Instead, it refactors the code developed so far in order do extract the persistence logic from the controllers to a DAO (Data Access Object) hierarchy, providing higher cohesion to the controller classes.  
+### 10 - Refactoring the code to decouple a DAO hiearchy from the controllers
+
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/10/jpa-hands-on
+
+<strong> Introduction </strong>
+
+- This example does not include any new feature of JPA. Instead, it refactors the code developed so far in order do extract the persistence logic from the controllers to a DAO (Data Access Object) hierarchy, providing higher cohesion to the controller classes.  
 
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_10.png" widht=901 height=477 alt="UML class diagram"></a></p>
 
