@@ -497,7 +497,7 @@ public class Cruise implements Serializable {
 ### 17 - Refactoring the code to eliminate code duplicate and generalize some methods
 
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
-<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+<strong>Project source</strong>: Source_Code/17/jpa-hands-on
 
 <strong> Introduction </strong>
 
@@ -509,7 +509,7 @@ public class Cruise implements Serializable {
 ### 18 - Mapping a bidirectional one-to-many relationship
 
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
-<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+<strong>Project source</strong>: Source_Code/18/jpa-hands-on
 
 <strong> Introduction </strong>
 
@@ -555,7 +555,7 @@ public class Reservation implements Serializable {
 ### 19 - Mapping a bidirectional many-to-many relationship
 
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
-<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+<strong>Project source</strong>: Source_Code/19/jpa-hands-on
 
 <strong> Introduction </strong>
 
@@ -617,7 +617,7 @@ reservation.getCustomers().remove(customer);
 ### 20 - Mapping a unidirectional many-to-many relationship
 
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
-<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+<strong>Project source</strong>: Source_Code/20/jpa-hands-on
 
 <strong> Introduction </strong>
 
@@ -633,7 +633,7 @@ reservation.getCustomers().remove(customer);
 ### 21 - Mapping inheritance - the strategy single-table
 
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
-<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+<strong>Project source</strong>: Source_Code/21/jpa-hands-on
 
 <strong> Introduction </strong>
 
@@ -676,7 +676,6 @@ public class Employee extends Customer {
  - The following image illustrates the inheritance hierachy used in the example.
    <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Inheritance.png" width=217 height=831 alt="UML class diagram"></a></p>
    
-   
 - The following image illustrates the corresponding relational model for the inheritance hierachy used in the example.
    <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Relational_Model_Single_Table.png" width=975 height=137 alt="UML class diagram"></a></p>
    
@@ -693,7 +692,7 @@ public class Employee extends Customer {
 ### 22 - Mapping inheritance - the strategy table per class
 
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
-<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+<strong>Project source</strong>: Source_Code/22/jpa-hands-on
 
 <strong> Introduction </strong>
 
@@ -741,7 +740,7 @@ public class Employee extends Customer{
 ### 23 - Mapping inheritance - the strategy table per subclass
 
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
-<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+<strong>Project source</strong>: Source_Code/23/jpa-hands-on
 
 <strong> Introduction </strong>
 
@@ -787,11 +786,10 @@ public class Employee extends Customer{
 <strong>Disadvantages of TABLE_PER_SUBCLASS mapping:</strong>
 - It does not perform so well as the SINGLE_TABLE strategy.
 
-
 ### 24 - Inheritance from a non-entity class with @MappedSuperclass
 
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
-<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+<strong>Project source</strong>: Source_Code/24/jpa-hands-on
 
 <strong> Introduction </strong>
 
@@ -824,7 +822,7 @@ public class Employee extends Customer{
 ### 25 - Introduction to the Query interface
 
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
-<strong>Project source</strong>: Source_Code/16/jpa-hands-on
+<strong>Project source</strong>: Source_Code/25/jpa-hands-on
 
 <strong>Introduction</strong>
 
