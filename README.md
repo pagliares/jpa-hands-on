@@ -21,15 +21,15 @@ Repository with examples of the Object Relational Mapping - ORM - framework know
 <a href="https://github.com/pagliares/jpa-hands-on#08---mapping-datetime-after-java-se-8">08 - Mapping Date/Time after Java-SE 8</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#09---mapping-java-enums">09 - Mapping Java Enums</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#10---refactoring-the-code-to-decouple-a-dao-hiearchy-from-the-controllers">10 - Refactoring the code to decouple a DAO hiearchy from the controllers</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#11---jpa-hands-on">11 - Embed java objects inside an entity bean</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#11---embed-java-objects-inside-an-entity-bean">11 - Embed java objects inside an entity bean</a><br>
 
 ### Part III - Mapping relationships between entities
 
-<a href="https://github.com/pagliares/jpa-hands-on#12---jpa-hands-on">12 - Mapping a unidirectional one-to-one relationship</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#13---jpa-hands-on">13 - Mapping a bidirectional one-to-one relationship</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#14---jpa-hands-on">14 - Mapping a unidirectional one-to-many relationship</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#15---jpa-hands-on">15 - Mapping a unidirectional one-to-many relationship with a join table</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#16---jpa-hands-on">16 - Mapping a unidirectional many-to-one relationship with a join table</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#12---mapping-a-unidirectional-one-to-one-relationship">12 - Mapping a unidirectional one-to-one relationship</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#13---mapping-a-bidirectional-one-to-one-relationship">13 - Mapping a bidirectional one-to-one relationship</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#14---mapping-a-unidirectional-one-to-many-relationship">14 - Mapping a unidirectional one-to-many relationship</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#15---mapping-a-unidirectional-one-to-many-relationship-with-a-join-table">15 - Mapping a unidirectional one-to-many relationship with a join table</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#16---jpa-hands-on">16 - Mapping a unidirectional many-to-one relationship</a><br>
 
 ## Jakarta Persistence API (Important)
 
@@ -191,7 +191,7 @@ public class Customer implements Serializable {
 ### 06 - Non-persistent properties(@Transient)
 
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
-<strong>Project source</strong>: Source_Code/O5/jpa-hands-on
+<strong>Project source</strong>: Source_Code/O6/jpa-hands-on
 
 <strong> Introduction </strong>
 
@@ -211,11 +211,10 @@ public class Customer implements Serializable {
 }
 </pre>
 
-
 ### 07 - Mapping Date/Time before Java-SE 8
 
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
-<strong>Project source</strong>: Source_Code/O5/jpa-hands-on
+<strong>Project source</strong>: Source_Code/O7/jpa-hands-on
 
 <strong> Introduction </strong>
 
@@ -244,7 +243,6 @@ public class Customer implements Serializable {
 
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_07.png" widht=886 height=431 alt="UML class diagram"></a></p>
    
-
 ### 08 - Mapping Date/Time after Java-SE 8
 
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
@@ -330,7 +328,7 @@ public class Customer implements Serializable {
 ### 12 - Mapping a unidirectional one-to-one relationship
 
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
-<strong>Project source</strong>: Source_Code/11/jpa-hands-on
+<strong>Project source</strong>: Source_Code/12/jpa-hands-on
 
 <strong> Introduction </strong>
 
@@ -347,7 +345,7 @@ public class Customer implements Serializable {
 ### 13 - Mapping a bidirectional one-to-one relationship
 
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
-<strong>Project source</strong>: Source_Code/11/jpa-hands-on
+<strong>Project source</strong>: Source_Code/13/jpa-hands-on
 
 <strong> Introduction </strong>
 
@@ -451,14 +449,18 @@ public class Customer implements Serializable {
 - Because the relationship between customers and phones is one-to-many, a unique constraint will be put on the PHONE_ID column of the CUSTOMER_PHONE table by the persistence provider if it supports and if you have activated DDL generation.
 - As per the definition of the relationship, one customer has many phones, but a phone has only one customer. The unique constraint enforces this.
 
+### 16 - Mapping a unidirectional many-to-one relationship
 
-### 16 - jpa-hands-on
-   -  This example illustrates the use of <strong>UNIDIRECTIONAL MANY-TO-ONE RELATIONSHIP</strong> between Cruise and Ship. 
-   
-   <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_16.png" width=559 height=252 alt="UML class diagram"></a></p>
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/16/jpa-hands-on
 
+<strong> Introduction </strong>
+
+- This example illustrates the use of <strong>UNIDIRECTIONAL MANY-TO-ONE RELATIONSHIP</strong> between Cruise and Ship. 
    
-   - In that sense, we create a Cruise entity class and associtated in a unidirectional way with the Ship entity class.
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_16.png" width=559 height=252 alt="UML class diagram"></a></p>
+
+- In that sense, we create a Cruise entity class and associtated in a unidirectional way with the Ship entity class.
  
 <pre>
 @Entity
@@ -475,10 +477,10 @@ public class Cruise implements Serializable {
 }
 </pre>
 
- - The example also includes support to populate the database tables SHIP and CRUISE at startup
- - The example includes the classes CruiseTest and CabinTest (along with the controllers, DAOs and Exceptions for Cruise and Ship) in order to  read ship and cruise information from the keyboard.
+- The example also includes support to populate the database tables SHIP and CRUISE at startup
+- The example includes the classes CruiseTest and CabinTest (along with the controllers, DAOs and Exceptions for Cruise and Ship) in order to  read ship and cruise information from the keyboard.
  
- ### 17 - jpa-hands-on
+### 17 - jpa-hands-on
    -  This example DOES NOT illustrate any new JPA concept. Instead, it is a refactored version of the previous example.
    - We decided to refactor the code to eliminate duplicated code in classes CabinTest, CruiseTest, CustomerTest, ShipTest
    - We also create a populateDatabase method on DatabaseUtility class to populate ALL database tables with fake data, instead of populating individual tables by running CabinTest, CruiseTest, CustomerTest, ShipTest.
