@@ -21,6 +21,15 @@ Repository with examples of the Object Relational Mapping - ORM - framework know
 <a href="https://github.com/pagliares/jpa-hands-on#08---mapping-datetime-after-java-se-8">08 - Mapping Date/Time after Java-SE 8</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#09---mapping-java-enums">09 - Mapping Java Enums</a><br>
 <a href="https://github.com/pagliares/jpa-hands-on#10---refactoring-the-code-to-decouple-a-dao-hiearchy-from-the-controllers">10 - Refactoring the code to decouple a DAO hiearchy from the controllers</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#11---jpa-hands-on">11 - Embed java objects inside an entity bean</a><br>
+
+### Part III - Mapping relationships between entities
+
+<a href="https://github.com/pagliares/jpa-hands-on#11---jpa-hands-on">12 - Mapping a unidirectional one-to-one relationship</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#11---jpa-hands-on">13 - Mapping a bidirectional one-to-one relationship</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#11---jpa-hands-on">14 - Mapping a unidirectional one-to-many relationship</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#11---jpa-hands-on">15 - Mapping a unidirectional one-to-many relationship with a join table</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#11---jpa-hands-on">16 - Mapping a unidirectional many-to-one relationship with a join table</a><br>
 
 
 ## Jakarta Persistence API (Important)
@@ -143,7 +152,7 @@ This hands-on uses MySQL and hence, all examples in this repository use <strong>
 
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_03.png" widht=358 height=390 alt="UML class diagram"></a></p>
 
-### 04 - Changing the default mapping for table and column names in a database 
+### 04 - Removing an entity
 
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
 <strong>Project source</strong>: Source_Code/O4/jpa-hands-on
@@ -307,27 +316,45 @@ public class Customer implements Serializable {
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_10.png" widht=901 height=477 alt="UML class diagram"></a></p>
 
 ### 11 - jpa-hands-on
-   - This example demonstrates the use of the annotations @Embedded, @AttributeOverrides, @AttibuteOverride e @Embeddable.
-   - These annotation may be used when the developer wants to embed java objects inside an entity bean and map the properties of this embedable object to columnds in the database generated for the entity bean.
-   - Embedabble objects do not have identy (primary key) and are exclusively owned by the entity bean classes associated with them.
+
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/11/jpa-hands-on
+
+<strong> Introduction </strong>
+
+- This example demonstrates the use of the annotations @Embedded, @AttributeOverrides, @AttibuteOverride e @Embeddable.
+- These annotation may be used when the developer wants to embed java objects inside an entity bean and map the properties of this embedable object to columnds in the database generated for the entity bean.
+- Embedabble objects do not have identy (primary key) and are exclusively owned by the entity bean classes associated with them.
    
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_11.png" widht=901 height=477 alt="UML class diagram"></a></p>
 
-### 12 - jpa-hands-on
-   - This example is an alternative to the previous example. 
-   - The example uses the concept of relationship between entities.
-   - This example uses a <strong>UNIDIRECTIONAL ONE-TO-ONE RELATIONSHIP</strong> between Customer and Address (A customer has one address). 
-   - JPA has 7 types of relationships: UNIDIRECTIONAL ONE-TO-ONE, BIDIRECTIONAL ONE-TO-ONE, UNIDIRECTIONAL ONE-TO-MANY, BIDIRECTIONAL ONE-TO-MANY, UNIDIRECTIONAL MANY-TO-ONE, UNIDIRECTIONAL MANY-TO-MANY, BIDIRECTIONAL MANY-TO-MANY. We are going to study all of them in this hands-on.
-   - We recommend you to contrast this solution with the solution presented in the previous example that used @Embedded, @AttributeOverrides, @AttributeOverride, and @Embeddable
-   - This alternative solution generates two tables in the database and associates them  through the foreign key of the table Address presented in the table Customer.
-   - If you want, you can customize the name of the column to be created in the table Customer by using the annotation @JoinColumn. For example, @JoinColumn(name="ADDR_ID")
-   - The attribute cascade with value CascadeType.ALL indicates to JPA that if we remove a customer, we also want to automatically delete its address associated. In the same way, if we persist a customer, it's address will be persisted automatically as well.
-   - CascadeType has other constants, for example, CascadeType.PERSIST. If you use CascadeType.PERSIST you are telling JPA that if you persist a customer, you also want to persist its address, but if you remove a customer, the associate address WILL NOT be deleted from the database.
+### 12 - Mapping a unidirectional one-to-one relationship
 
-### 13 - jpa-hands-on
-   -  This example illustrates the use of <strong>BIDIRECTIONAL ONE-TO-ONE RELATIONSHIP</strong>. In that sense, we create the CredtiCard entiy class and associtated in a bidirectional way with the Customer entity class.
-   - I updated the populateCustomerTable that populates the database with some initial data to include credit card information
-   - I updated the <property name="eclipselink.ddl-generation" value="create-tables"/> on persistence.xml to allow running both CustomerTest and CabinTest classes, without droping the database tables after execution of one of them.
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/11/jpa-hands-on
+
+<strong> Introduction </strong>
+
+- This example is an alternative to the previous example. 
+- The example uses the concept of relationship between entities.
+- This example uses a <strong>UNIDIRECTIONAL ONE-TO-ONE RELATIONSHIP</strong> between Customer and Address (A customer has one address). 
+- JPA has 7 types of relationships: UNIDIRECTIONAL ONE-TO-ONE, BIDIRECTIONAL ONE-TO-ONE, UNIDIRECTIONAL ONE-TO-MANY, BIDIRECTIONAL ONE-TO-MANY, UNIDIRECTIONAL MANY-TO-ONE, UNIDIRECTIONAL MANY-TO-MANY, BIDIRECTIONAL MANY-TO-MANY. We are going to study all of them in this hands-on.
+- We recommend you to contrast this solution with the solution presented in the previous example that used @Embedded, @AttributeOverrides, @AttributeOverride, and @Embeddable
+- This alternative solution generates two tables in the database and associates them  through the foreign key of the table Address presented in the table Customer.
+- If you want, you can customize the name of the column to be created in the table Customer by using the annotation @JoinColumn. For example, @JoinColumn(name="ADDR_ID")
+- The attribute cascade with value CascadeType.ALL indicates to JPA that if we remove a customer, we also want to automatically delete its address associated. In the same way, if we persist a customer, it's address will be persisted automatically as well.
+- CascadeType has other constants, for example, CascadeType.PERSIST. If you use CascadeType.PERSIST you are telling JPA that if you persist a customer, you also want to persist its address, but if you remove a customer, the associate address WILL NOT be deleted from the database.
+
+### 13 - Mapping a bidirectional one-to-one relationship
+
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/11/jpa-hands-on
+
+<strong> Introduction </strong>
+
+- This example illustrates the use of <strong>BIDIRECTIONAL ONE-TO-ONE RELATIONSHIP</strong>. In that sense, we create the CredtiCard entiy class and associated in a bidirectional way with the Customer entity class.
+- I updated the populateCustomerTable that populates the database with some initial data to include credit card information
+- I updated the <property name="eclipselink.ddl-generation" value="create-tables"/> on persistence.xml to allow running both CustomerTest and CabinTest classes, without droping the database tables after execution of one of them.
    
 <pre>
 @Entity
@@ -359,13 +386,18 @@ public class CreditCard implements Serializable {
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_13.png" widht=650 height=245 alt="UML class diagram"></a></p>
 
 
-### 14 - jpa-hands-on
-   -  This example illustrates the use of <strong>UNIDIRECTIONAL ONE-TO-MANY RELATIONSHIP</strong> between Customer and Phone. 
-   
-   <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_14.png" widht=650 height=245 alt="UML class diagram"></a></p>
+### 14 - Mapping a unidirectional one-to-many relationship
 
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/14/jpa-hands-on
+
+<strong> Introduction </strong>
+
+-  This example illustrates the use of <strong>UNIDIRECTIONAL ONE-TO-MANY RELATIONSHIP</strong> between Customer and Phone. 
    
-   - In that sense, we create a Phone entity class and associtated in a unidirectional way with the Customer entity class.
+<p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_14.png" widht=650 height=245 alt="UML class diagram"></a></p>
+
+- In that sense, we create a Phone entity class and associtated in a unidirectional way with the Customer entity class.
  
 <pre>
 @Entity
@@ -381,15 +413,21 @@ public class Customer implements Serializable {
 }
 </pre>
 
- - I updated the CustomerTest (methods createCustomer and updateCustomer) to read phone information from the keyboard.
- - I updated the method populateCustomerTable in the class Database utility to persist some phone numbers associated with customers.
- - I updated the <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/> on persistence.xml to allow dropping database tables every time i Run the classes CustomerTest and CabinTest.
+- I updated the CustomerTest (methods createCustomer and updateCustomer) to read phone information from the keyboard.
+- I updated the method populateCustomerTable in the class Database utility to persist some phone numbers associated with customers.
+- I updated the <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/> on persistence.xml to allow dropping database tables every time i Run the classes CustomerTest and CabinTest.
  
 
-### 15 - jpa-hands-on
-   -  Some developers prefer to use an association table when mapping an <strong>UNIDIRECTIONAL ONE-TO-MANY</strong> relationship, such as Customer and Phone (See previous example in this repository).
-   - In this scenario, the association table has two columns with foreign keys pointing to both CUSTOMER and PHONE records.
-   - To have this type of mapping, we need to change from a @JoinColumn annotation (see previous example) in our Customer bean class to a @JoinTable annotation.  
+### 15 - Mapping a unidirectional one-to-many relationship with a join table
+
+<a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
+<strong>Project source</strong>: Source_Code/15/jpa-hands-on
+
+<strong> Introduction </strong>
+
+-  Some developers prefer to use an association table when mapping an <strong>UNIDIRECTIONAL ONE-TO-MANY</strong> relationship, such as Customer and Phone (See previous example in this repository).
+- In this scenario, the association table has two columns with foreign keys pointing to both CUSTOMER and PHONE records.
+- To have this type of mapping, we need to change from a @JoinColumn annotation (see previous example) in our Customer bean class to a @JoinTable annotation.  
 
 <pre>
 @Entity
