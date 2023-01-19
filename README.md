@@ -25,12 +25,11 @@ Repository with examples of the Object Relational Mapping - ORM - framework know
 
 ### Part III - Mapping relationships between entities
 
-<a href="https://github.com/pagliares/jpa-hands-on#11---jpa-hands-on">12 - Mapping a unidirectional one-to-one relationship</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#11---jpa-hands-on">13 - Mapping a bidirectional one-to-one relationship</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#11---jpa-hands-on">14 - Mapping a unidirectional one-to-many relationship</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#11---jpa-hands-on">15 - Mapping a unidirectional one-to-many relationship with a join table</a><br>
-<a href="https://github.com/pagliares/jpa-hands-on#11---jpa-hands-on">16 - Mapping a unidirectional many-to-one relationship with a join table</a><br>
-
+<a href="https://github.com/pagliares/jpa-hands-on#12---jpa-hands-on">12 - Mapping a unidirectional one-to-one relationship</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#13---jpa-hands-on">13 - Mapping a bidirectional one-to-one relationship</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#14---jpa-hands-on">14 - Mapping a unidirectional one-to-many relationship</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#15---jpa-hands-on">15 - Mapping a unidirectional one-to-many relationship with a join table</a><br>
+<a href="https://github.com/pagliares/jpa-hands-on#16---jpa-hands-on">16 - Mapping a unidirectional many-to-one relationship with a join table</a><br>
 
 ## Jakarta Persistence API (Important)
 
@@ -315,7 +314,7 @@ public class Customer implements Serializable {
 
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_10.png" widht=901 height=477 alt="UML class diagram"></a></p>
 
-### 11 - jpa-hands-on
+### 11 - Embed java objects inside an entity bean
 
 <a href="https://github.com/pagliares/jpa-hands-on#outline">Back to Outline</a></br>
 <strong>Project source</strong>: Source_Code/11/jpa-hands-on
