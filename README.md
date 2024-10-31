@@ -334,8 +334,8 @@ public class Customer implements Serializable {
 <strong> Introduction </strong>
 
 - This example demonstrates the use of the annotations @Embedded, @AttributeOverrides, @AttibuteOverride e @Embeddable.
-- These annotation may be used when the developer wants to embed java objects inside an entity bean and map the properties of this embedable object to columnds in the database generated for the entity bean.
-- Embedabble objects do not have identy (primary key) and are exclusively owned by the entity bean classes associated with them.
+- These annotation may be used when the developer wants to embed java objects inside an entity bean and map the properties of this embedable object to columns in the database generated for the entity bean.
+- Embedabble objects do not have identity (primary key) and are exclusively owned by the entity bean classes associated with them.
    
 <p align="center"><img src="https://github.com/pagliares/jpa-hands-on/blob/main/Images/Class_Diagram_Example_11.png" widht=901 height=477 alt="UML class diagram"></a></p>
 
