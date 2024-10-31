@@ -363,9 +363,9 @@ public class Customer implements Serializable {
 
 <strong> Introduction </strong>
 
-- This example illustrates the use of <strong>BIDIRECTIONAL ONE-TO-ONE RELATIONSHIP</strong>. In that sense, we create the CredtiCard entiy class and associated in a bidirectional way with the Customer entity class.
-- I updated the populateCustomerTable that populates the database with some initial data to include credit card information
-- I updated the <property name="eclipselink.ddl-generation" value="create-tables"/> on persistence.xml to allow running both CustomerTest and CabinTest classes, without droping the database tables after execution of one of them.
+- This example illustrates the use of <strong>BIDIRECTIONAL ONE-TO-ONE RELATIONSHIP</strong>. In that sense, we create the CreditCard entiy class and associated in a bidirectional way with the Customer entity class.
+- I updated the populateCustomerTable method in the class CustomerTest. This method populates the database with some initial data to include credit card information
+- I updated the <property name="eclipselink.ddl-generation" value="create-tables"/> on persistence.xml to allow running both CustomerTest and CabinTest classes, without droping the database tables after execution of one of them
    
 <pre>
 @Entity
